@@ -1,0 +1,290 @@
+mergeable:
+  default:
+      0:
+        bet_bonus: 15
+        switching_bet_bonus: 30
+
+  multi_mode_ceilings:
+      defiance_subset_exemptions:
+          simple: 5
+          advanced: 5
+          runmons: 2
+          stadium2: 5
+          christmas: 2
+          dinner: 2
+          nuclear_winter: 2
+          new_year: 2
+          costume: 2
+          metronome: 1
+          rnggod: 2
+          pwt: 2
+
+
+##################
+# settings
+##################
+event_name: Man Vs. Machine
+
+default_gimmick_chance: 0.45
+
+default_metagame: simple
+
+must_contain_all_gimmicks:
+  - manvsmachine
+
+make_balanced_matches: false
+
+
+uneven_teams_cooldown: 0
+large_teams_cooldown: 0
+
+##################
+metagames:
+##################
+    #########
+    base:
+    #########
+        simple:       {rarity: 30.0}
+        advanced:     {rarity: 10.0}
+        ubers:
+            rarity:  3.0
+            match_settings:
+                2:
+                    bet_bonus: 12
+                    switching_bet_bonus: 23
+        dubers:
+            rarity:  3.0
+            gimmick_rarity_whitelist:
+                - doubles_inputting_combo_of_2
+                - doubles_inputting_combo_of_3
+                - doubles_inputting_combo_of_4
+        middle_cup:   {rarity:  3.5}
+        little_cup:   {rarity:  4.5}
+        stadium2:
+            rarity:  2.5
+            match_settings:
+                2:
+                    bet_bonus: 12
+                    switching_bet_bonus: 23
+        runmons:
+            rarity:  4.0
+            match_settings:
+                2:
+                    bet_bonus: 8
+                    switching_bet_bonus: 15
+        anime:
+            rarity:  4.0
+            match_settings:
+                2:
+                    bet_bonus: 8
+                    switching_bet_bonus: 15
+        manga:
+            rarity:  4.0
+            match_settings:
+                2:
+                    bet_bonus: 8
+                    switching_bet_bonus: 15
+        pwt:
+            rarity:  4.0
+            match_settings:
+                2:
+                    bet_bonus: 8
+                    switching_bet_bonus: 15
+        type_warfare:
+            rarity:  2.0
+            match_settings:
+                2:
+                    bet_bonus: 12
+                    switching_bet_bonus: 23
+        color_clash:  {rarity:  1.5}
+        
+    #########
+    versus_mixes:
+    #########
+        vs_mix:       {rarity: 1.0}
+        
+    #########
+    random_mixes:
+    #########
+        random_mix_auto: {rarity: 4.0}
+        random_mix_bid:  {rarity: 0.0}
+        random_mix_bid2: {rarity: 0.0}
+        random_mix_bid3: {rarity: 0.0}
+        luckmons:
+            rarity: 0.0
+            match_settings:
+                5:
+                    bet_bonus: 3
+                    switching_bet_bonus: 3
+        
+        
+##################
+gimmicks:
+##################
+    #########
+    base:
+    #########
+        # input change
+        manvsmachine:
+            rarity: 1.5
+            match_settings:
+                3:
+                    bet_bonus: 8  # Rarity has no effect, see must_contain_any_gimmicks for details.
+        random_order:
+            rarity: 1.0
+            match_settings:
+                2:
+                    bet_bonus: 25
+                    switching_bet_bonus: 35
+        secrecy:
+            rarity: 1.0
+            match_settings:
+                3:
+                    bet_bonus: 25
+                    switching_bet_bonus: 35
+        traitor:
+            rarity: 1.0
+            match_settings:
+                3:
+                    bet_bonus: 25
+                    switching_bet_bonus: 35
+        blind_bet:
+            rarity: 0.6
+            match_settings:
+                3:
+                    bet_bonus: 23
+                    switching_bet_bonus: 30
+        # battle change
+        doubles:
+            rarity: 15.0
+            match_settings:
+                2:
+                    bet_bonus: 25
+                    switching_bet_bonus: 35
+                3:
+                  team_sizes:
+                      !!python/tuple [2,6]:
+                          rarity: 0.5
+                          biddable: yes
+                      !!python/tuple [3,6]:
+                          rarity: 1.0
+                          biddable: yes
+                      !!python/tuple [4,6]:
+                          rarity: 0.5
+                          biddable: yes
+                      !!python/tuple [5,6]:
+                          rarity: 0.0
+                          biddable: yes
+                      !!python/tuple [6,6]:
+                          rarity: 0.0
+                          biddable: yes
+
+                      !!python/tuple [2,5]:
+                          rarity: 1.0
+                          biddable: yes
+                      !!python/tuple [3,5]:
+                          rarity: 1.0
+                          biddable: yes
+                      !!python/tuple [4,5]:
+                          rarity: 0.0
+                          biddable: yes
+                      !!python/tuple [5,5]:
+                          rarity: 0.0
+                          biddable: yes
+
+                      !!python/tuple [2,4]:
+                          rarity: 1.0
+                          biddable: yes
+                      !!python/tuple [3,4]:
+                          rarity: 0.0
+                          biddable: yes
+                      !!python/tuple [4,4]:
+                          rarity: 0.0
+                          biddable: yes
+
+                      !!python/tuple [2,3]:
+                          rarity: 0.01
+                          biddable: yes
+                      !!python/tuple [3,3]:
+                          rarity: 0.0
+                          biddable: yes
+
+                      !!python/tuple [2,2]:
+                          rarity: 0.0
+                          biddable: yes
+        inverse:        {rarity: 2.0}
+        fog:            {rarity: 1.4}
+        speed:
+            rarity: 2.0
+            match_settings:
+                1:
+                    bet_bonus: 23
+                    switching_bet_bonus: 30
+        fragile:
+            rarity: 1.0
+            match_settings:
+                3:
+                    bet_bonus: 8
+                    switching_bet_bonus: 15
+        80_perc_hp:     {rarity: 0.5}
+        afflicted:      {rarity: 0.5}
+        timed:          {rarity: 1.0}
+        german:         {rarity: 0.125}
+        french:         {rarity: 0.125}
+        spanish:        {rarity: 0.125}
+        italian:        {rarity: 0.125}
+        japanese:       {rarity: 0.125}
+        # x-replace
+        pinpoint:
+            rarity: 1.0
+            match_settings:
+                1:
+                    bet_bonus: 12
+                    switching_bet_bonus: 23
+        chameleon:      {rarity: 1.0}
+        shield:         {rarity: 0.2}
+        armor:          {rarity: 0.2}
+        adaptable:
+            rarity: 0.5
+            match_settings:
+                1:
+                    bet_bonus: 12
+                    switching_bet_bonus: 23
+        explosive:
+            rarity: 1.0
+            match_settings:
+                1:
+                    bet_bonus: 12
+                    switching_bet_bonus: 23
+        rainbow:        {rarity: 0.5}
+        hit_and_run:    {rarity: 0.5}
+        hidden_ace:     {rarity: 0.4}
+        letdown:        {rarity: 0.1}
+        fire_and_ice:   {rarity: 0.2}
+        sky_battle:     {rarity: 0.5}
+        rngod:          {rarity: 0.6}
+        clone:
+            rarity: 1.0
+            match_settings:
+                1:
+                    bet_bonus: 12
+                    switching_bet_bonus: 23
+        sketchy:
+            rarity: 0.4
+            match_settings:
+                1:
+                    bet_bonus: 12
+                    switching_bet_bonus: 23
+        lucky:          {rarity: 0.3}
+        boing:          {rarity: 0.1}
+        acid_rain:      {rarity: 1.0}
+        hidden_bets:    {rarity: 5.0}
+        #        dev2:           {rarity: 0.0}
+    #########
+    random_combos:
+    #########
+        singles_combo_of_2:             {rarity: 3.0}
+        singles_combo_of_3:             {rarity: 0.3}
+        # Doubles is separate, just for more precise control over the rarities
+        doubles_inputting_combo_of_2:    {rarity: 1.5}
+        doubles_inputting_combo_of_3:    {rarity: 0.2}

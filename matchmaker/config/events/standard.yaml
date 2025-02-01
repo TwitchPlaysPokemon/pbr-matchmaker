@@ -1,0 +1,142 @@
+##################
+# settings
+##################
+event_name: Standard
+
+default_gimmick_chance: 0.53
+
+################
+metagames:
+################
+    #########
+    base:
+    #########
+        # Rarities are not percentages.
+        # Modes are selected by accumulating and then randomly bisecting their rarities.
+        simple:       {rarity: 30.0}
+        advanced:     {rarity: 10.0}
+        pwt:
+            rarity:  4.0
+            gimmick_rarities:
+                defiance: 35.0
+        ubers:        {rarity:  1.5}
+        dubers:
+            rarity:  3.0
+            gimmick_rarity_whitelist:
+                - doubles
+                - doubles_inputting_combo_of_2
+                - doubles_inputting_combo_of_3
+                - doubles_inputting_combo_of_4
+                - doubles_defiance_combo_of_2
+                - doubles_defiance_combo_of_3
+                - doubles_defiance_combo_of_4
+        middle_cup:   {rarity:  2.5}
+        little_cup:   {rarity:  2.5}
+        stadium2:
+            rarity:  2.5
+            gimmick_rarity_whitelist:
+                - s2_defiance_and_random_order
+            gimmick_rarities:
+                 s2_defiance_and_random_order: 1.0
+        runmons:
+            rarity:  1.5
+            gimmick_rarity_whitelist:
+                - defiance
+        anime:        {rarity:  1.5}
+        manga:        {rarity:  1.5}
+        pbr_gold:     {rarity:  0.5}
+        metronome:    {rarity:  0.4}
+        ohko:         {rarity:  0.02}
+        seismic_toss: {rarity:  0.01}
+        kapow:        {rarity:  0.02}
+        rough_skin:   {rarity:  0.01}
+        input_war:    {rarity:  0.03}
+        type_warfare: {rarity:  1.5}
+        color_clash:  {rarity:  1.5}
+        starters:     {rarity:  0.0}
+
+    #########
+    versus_mixes:
+    #########
+        vs_mix:       {rarity: 1.0}
+
+    #########
+    random_mixes:
+    #########
+        random_mix_auto: {rarity: 2.5}
+        random_mix_bid:  {rarity: 0.0}
+        random_mix_bid2: {rarity: 0.0}
+        random_mix_bid3: {rarity: 0.0}
+        luckmons:        {rarity: 0.0}
+
+
+################
+gimmicks:
+################
+    #########
+    base:
+    #########
+        # input change
+        defiance:       {rarity: 3.0}
+        manvsmachine:   {rarity: 1.5}
+        duel:           {rarity: 1.5}
+        sync5050:       {rarity: 1.0}
+        # team change
+        random_order:   {rarity: 1.0}
+        secrecy:        {rarity: 1.0}
+        traitor:        {rarity: 1.0}
+        blind_bet:      {rarity: 0.6}
+        # battle change
+        doubles:        {rarity: 7.0}
+        commitment:     {rarity: 1.0}
+        sticky_inputs:  {rarity: 1.0}
+        inverse:        {rarity: 2.0}
+        fog:            {rarity: 1.4}
+        speed:          {rarity: 2.0}
+        fragile:        {rarity: 1.0}
+        80_perc_hp:     {rarity: 0.5}
+        afflicted:      {rarity: 0.5}
+        defeatist:      {rarity: 5.0}
+        timed:          {rarity: 1.0}
+        german:         {rarity: 0.125}
+        french:         {rarity: 0.125}
+        spanish:        {rarity: 0.125}
+        italian:        {rarity: 0.125}
+        japanese:       {rarity: 0.125}
+        # x-replace
+        pinpoint:       {rarity: 1.0}
+        chameleon:      {rarity: 1.0}
+        shield:         {rarity: 0.2}
+        armor:          {rarity: 0.2}
+        adaptable:      {rarity: 0.5}
+        explosive:      {rarity: 1.0}
+        rainbow:        {rarity: 0.5}
+        hit_and_run:    {rarity: 0.5}
+        hidden_ace:     {rarity: 0.4}
+        letdown:        {rarity: 0.1}
+        fire_and_ice:   {rarity: 0.2}
+        sky_battle:     {rarity: 0.5}
+        rngod:          {rarity: 0.6}
+        clone:          {rarity: 1.0}
+        sketchy:        {rarity: 0.4}
+        lucky:          {rarity: 0.3}
+        boing:          {rarity: 0.1}
+        acid_rain:      {rarity: 1.0}
+#        communism:      {rarity: 0.01}
+#        dev2:           {rarity: 0.0}
+
+    #########
+    random_combos:
+    #########
+        s2_defiance_and_random_order:   {rarity: 0.0}
+        defiance_rngod:                 {rarity: 1.0}
+        singles_combo_of_2:             {rarity: 3.0}
+        singles_combo_of_3:             {rarity: 0.3}
+        singles_combo_of_4:             {rarity: 0.05}
+        # Doubles is separate, just for more precise control over the rarities
+        doubles_inputting_combo_of_2:   {rarity: 1.0}
+        doubles_inputting_combo_of_3:   {rarity: 0.2}
+        doubles_inputting_combo_of_4:   {rarity: 0.03}
+        doubles_defiance_combo_of_2:    {rarity: 6.0}
+        doubles_defiance_combo_of_3:    {rarity: 0.6}
+        doubles_defiance_combo_of_4:    {rarity: 0.08}

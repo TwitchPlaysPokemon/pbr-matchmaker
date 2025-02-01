@@ -1,0 +1,122 @@
+##################
+# settings
+##################
+event_name: Doubles Inputting
+
+default_gimmick_chance: 0.45
+
+must_contain_all_gimmicks:
+  - doubles
+
+##################
+metagames:
+##################
+    #########
+    base:
+    #########
+        simple:       {rarity: 30.0}
+        advanced:     {rarity: 10.0}
+        dubers:       {rarity:  5.0}
+        ubers:
+          rarity:  3.0
+          gimmick_rarity_whitelist:
+            - doubles
+            - doubles_inputting_combo_of_2
+            - doubles_inputting_combo_of_3
+            - doubles_inputting_combo_of_4
+        middle_cup:   {rarity:  3.0}
+        little_cup:   {rarity:  4.0}
+        stadium2:     {rarity:  3.0}
+        runmons:      {rarity:  3.0}
+        anime:        {rarity:  4.0}
+        manga:        {rarity:  4.0}
+        pwt:          {rarity:  4.0}
+        metronome:
+            rarity:  0.8
+            match_settings:
+                5:
+                    bet_bonus: 10
+        ohko:         {rarity:  0.02}
+        seismic_toss: {rarity:  0.01}
+        kapow:        {rarity:  0.02}
+        rough_skin:   {rarity:  0.01}
+        # input_war:    {rarity:  0.03}
+        type_warfare: {rarity:  2.0}
+        color_clash:  {rarity:  2.0}
+        
+    #########
+    versus_mixes:
+    #########
+        vs_mix:       {rarity: 2.0}
+        
+    #########
+    random_mixes:
+    #########
+        random_mix_auto: {rarity: 3.0}
+        random_mix_bid:  {rarity: 0.0}
+        random_mix_bid2: {rarity: 0.0}
+        random_mix_bid3: {rarity: 0.0}
+        luckmons:        {rarity: 0.0}
+        
+        
+##################
+gimmicks:
+##################
+    #########
+    base:
+    #########
+        # input change
+#        defiance:       {rarity: 0.0}  # No defiance!!
+        duel:           {rarity: 1.0}
+        sync5050:       {rarity: 1.0}
+        # team change
+        random_order:   {rarity: 1.0}
+        secrecy:        {rarity: 1.0}
+        traitor:        {rarity: 1.0}
+        blind_bet:      {rarity: 0.6}
+        # battle change
+        doubles:        {rarity: 1.0}  # Rarity has no effect, see must_contain_any_gimmicks for details.
+        commitment:     {rarity: 1.0}
+        sticky_inputs:  {rarity: 1.0}
+        inverse:        {rarity: 2.0}
+        fog:            {rarity: 1.0}
+        speed:          {rarity: 1.0}
+        fragile:        {rarity: 1.0}
+        80_perc_hp:     {rarity: 0.5}
+        defeatist:      {rarity: 5.0}
+        afflicted:      {rarity: 0.5}
+        timed:          {rarity: 1.0}
+        german:         {rarity: 0.125}
+        french:         {rarity: 0.125}
+        spanish:        {rarity: 0.125}
+        italian:        {rarity: 0.125}
+        japanese:       {rarity: 0.125}
+        # x-replace
+        pinpoint:       {rarity: 1.0}
+        chameleon:      {rarity: 1.0}
+        shield:         {rarity: 0.1}
+        armor:          {rarity: 0.1}
+        adaptable:      {rarity: 0.5}
+        explosive:      {rarity: 1.0}
+        rainbow:        {rarity: 0.5}
+        hit_and_run:    {rarity: 0.5}
+        hidden_ace:     {rarity: 0.4}
+        letdown:        {rarity: 0.1}
+        fire_and_ice:   {rarity: 0.1}
+        sky_battle:     {rarity: 0.3}
+        rngod:          {rarity: 1.0}
+        clone:          {rarity: 1.0}
+        sketchy:        {rarity: 0.4}
+        lucky:          {rarity: 0.3}
+        boing:          {rarity: 0.1}
+        acid_rain:      {rarity: 1.0}
+#        dev2:           {rarity: 0.0}
+    
+    #########
+    random_combos:
+    #########
+        doubles_inputting_combo_of_2:   {rarity: 2.0}
+        doubles_inputting_combo_of_3:   {rarity: 0.2}
+        doubles_inputting_combo_of_4:   {rarity: 0.03}
+        
+        

@@ -1,0 +1,617 @@
+# NOTE: match commands that reach the matchmaker are already stripped of the 'match' and 't1' portions of the commands, if any.
+
+# Tests are separated by event, e.g., standard, halloween, etc.
+standard:
+
+    # Special cases - clone
+  - command: clone pikachu
+    success: yes
+  - command: simple raichu
+    success: no
+  - command: clone cresselia
+    success: yes
+  - command: clone cresselia 3v3
+    success: yes
+  - command: clone cresselia 4v4
+    success: yes
+  - command: clone cresselia 4v5
+    success: no
+  - command: clone cresselia 4v5
+    success: no
+  - command: clone shuckle 4v5
+    success: no
+  - command: clone shuckle 4v4
+    success: no
+  - command: clone shuckle 4v3
+    success: no
+  - command: clone shuckle 3v3
+    success: yes
+
+    # Specified team sizes
+  - command: fog traitor letdown mvm
+    success: yes
+  - command: fog traitor mvm
+    success: yes
+  - command: sketchy traitor mvm
+    success: yes
+
+  - command: simple 1v6
+    success: yes
+  - command: simple 1v3
+    success: yes
+  - command: simple 3v3
+    success: yes
+  - command: simple 6v6
+    success: yes
+  - command: simple 6v7
+    success: no
+  - command: simple 6v0
+    success: no
+  - command: simple 6v-7
+    success: no
+  - command: simple -6v7
+    success: no
+  - command: doubles 6v1
+    success: no
+  - command: doubles 1v6
+    success: no
+
+  - command: secrecy 3v3
+    success: yes
+  - command: secrecy 1,2,3/4,5,6
+    success: no
+  - command: secrecy 2v3
+    success: yes
+  - command: secrecy 1,2/3,4,5
+    success: no
+  - command: secrecy 1v1
+    success: no
+  - command: secrecy 1/3
+    success: no
+  - command: secrecy 1v3
+    success: yes
+  - command: secrecy 1/2,3,4
+    success: no
+  - command: secrecy 3v1
+    success: yes
+  - command: secrecy 1,2,3/4
+    success: no
+
+  - command: randomorder 3v3
+    success: yes
+  - command: randomorder 1,2,3/4,5,6
+    success: yes
+  - command: randomorder 2v3
+    success: yes
+  - command: randomorder 1,2/3,4,5
+    success: yes
+  - command: randomorder 1v1
+    success: no
+  - command: randomorder 1/3
+    success: no
+  - command: randomorder 1v3
+    success: yes
+  - command: randomorder 1/2,3,4
+    success: yes
+  - command: randomorder 3v1
+    success: yes
+  - command: randomorder 1,2,3/4
+    success: yes
+    
+  - command: traitor 3v3
+    success: yes
+  - command: traitor 1,2,3/4,5,6
+    success: yes
+  - command: traitor 2v3
+    success: yes
+  - command: traitor 1,2/3,4,5
+    success: yes
+  - command: traitor 1v1
+    success: no
+  - command: traitor 1/3
+    success: no
+  - command: traitor 1v3
+    success: no
+  - command: traitor 1/2,3,4
+    success: no
+  - command: traitor 3v1
+    success: no
+  - command: traitor 1,2,3/4
+    success: no
+
+  - command: fog 3v3
+    success: yes
+  - command: fog 1,2/3,4
+    success: no
+  - command: fog 1,2,3,4/5,6,7,8
+    success: no
+  - command: fog 2v3
+    success: yes
+  - command: fog 3v1
+    success: yes
+  - command: fog 4v1
+    success: no
+  - command: fog 4v4
+    success: no
+
+  - command: letdown 3v3
+    success: yes
+  - command: letdown 1,2/3,4
+    success: no
+  - command: letdown 1,2,3,4/5,6,7,8
+    success: no
+  - command: letdown 1v3
+    success: yes
+  - command: letdown 3v1
+    success: yes
+  - command: letdown 4v1
+    success: no
+  - command: letdown 1v4
+    success: no
+  - command: letdown 4v4
+    success: no
+
+  - command: rainbow 4v4
+    success: yes
+  - command: rainbow 1,2/3,4
+    success: yes
+  - command: rainbow 1,2,3,4/5,6,7,8
+    success: yes
+  - command: rainbow 1,2,3,4,5/6
+    success: no
+  - command: rainbow 1/2,3,4,5,6
+    success: no
+  - command: rainbow 1v4
+    success: yes
+  - command: rainbow 4v1
+    success: yes
+  - command: rainbow 5v1
+    success: no
+  - command: rainbow 5v5
+    success: no
+  - command: rainbow 1v5
+    success: no
+
+  - command: hitandrun 4v4
+    success: yes
+  - command: hitandrun 1,2/3,4
+    success: yes
+  - command: hitandrun 1,2,3,4/5,6,7,8
+    success: yes
+  - command: hitandrun 1,2,3,4,5/6
+    success: no
+  - command: hitandrun 1/2,3,4,5,6
+    success: no
+  - command: hitandrun 1v4
+    success: yes
+  - command: hitandrun 4v1
+    success: yes
+  - command: hitandrun 5v1
+    success: no
+  - command: hitandrun 5v5
+    success: no
+  - command: hitandrun 1v5
+    success: no
+
+  - command: boing 4v4
+    success: yes
+  - command: boing 1,2/3,4
+    success: no
+  - command: boing 1,2,3,4/5,6,7,8
+    success: no
+  - command: boing 1,2,3,4,5/6
+    success: no
+  - command: boing 1/2,3,4,5,6
+    success: no
+  - command: boing 1v4
+    success: yes
+  - command: boing 4v1
+    success: yes
+  - command: boing 5v1
+    success: no
+  - command: boing 5v5
+    success: no
+  - command: boing 1v5
+    success: no
+
+    # Special cases - ally target
+  - command: doubles defiance 50%allyhit
+    success: yes
+  - command: doubles defiance 50%allytarget
+    success: yes
+  - command: doubles defiance 0%allytarget
+    success: yes
+  - command: doubles defiance 100%allytarget
+    success: yes
+  - command: doubles defiance 99999%allytarget
+    success: no
+  - command: doubles defiance -5%allytarget
+    success: no
+  - command: doubles 50%allytarget
+    success: no
+  - command: defiance 50%allytarget
+    success: no
+  - command: simple 50%allytarget
+    success: no
+
+    # Special cases - timer
+  - command: timed 2min
+    success: yes
+  - command: timed 10min
+    success: yes
+  - command: timed 15min
+    success: yes
+  - command: timed 1min
+    success: yes
+  - command: timed 0min
+    success: no
+  - command: timed 110min
+    success: no
+  - command: timed 2.5min
+    success: no
+  - command: timed 0min
+    success: no
+
+    # Simple modes
+  - command: " "
+    success: yes
+  - command: defiance
+    success: yes
+  - command: DEFIANCE
+    success: yes
+  - command: normal
+    success: yes
+  - command: simple
+    success: yes
+  - command: SIMPLE
+    success: yes
+  - command: SIMPLE switching
+    success: yes
+  - command: advanced
+    success: yes
+  - command: fog
+    success: yes
+
+    # Combos
+  - command: defiance explosive
+    success: yes
+  - command: sync5050 speed fragile
+    success: yes
+  - command: simple advanced
+    success: yes
+  - command: simple advanced stadium2 runmons
+    success: yes
+  - command: metronome ohko
+    success: yes
+  - command: metronome ohko seismictoss kapow
+    success: yes
+  - command: sync5050 speed fragile
+    success: yes
+  - command: simple advanced switching
+    success: yes
+  - command: simple advanced stadium2 runmons switching
+    success: yes
+  - command: metronome ohko
+    success: yes
+  - command: metronome ohko seismictoss kapow
+    success: yes
+
+    # Aliases
+  - command: luckmons
+    success: yes
+  - command: runmon
+    success: yes
+  - command: uber
+    success: yes
+  - command: colorchange
+    success: yes
+  - command: uber colorchange
+    success: yes
+
+    # Team choice
+  - command: 1,2,3/4,5,6
+    success: yes
+  - command: advanced 1,2,3/4,5,6
+    success: yes
+  - command: simple explosive 1,2,3/4,5,6
+    success: yes
+  - command: randomorder 1,2,3/4,5,6
+    success: yes
+  - command: switching 1,2,3/4,5,6
+    success: yes
+  - command: defiance defiance
+    success: yes
+  - command: simple simple
+    success: yes
+
+    # Fail
+  - command: simple advanced 1,2,3/4,5,6
+    success: no
+  - command: simple advanced defiance 1,2,3/4,5,6
+    success: no
+  - command: metronome ohko 1,2,3/4,5,6
+    success: no
+  - command: normal defiance
+    success: no
+  - command: fireandice
+    success: no
+  - command: dfafdaf
+    success: no
+  - command: defiance switching
+    success: no
+  - command: randomorder switching
+    success: no
+  - command: hitandrun switching
+    success: no
+  - command: simple advanced defiance switching
+    success: no
+  - command: randomorder explosive switching
+    success: no
+  - command: hitandrun speed switching
+    success: no
+  - command: sync5050 speed fragile switching
+    success: no
+  - command: defiance 1,2,3/4,5,6
+    success: no
+  - command: defiance explosive 1,2,3/4,5,6
+    success: no
+  - command: metronome ohko switching
+    success: no
+  - command: metronome ohko seismictoss kapow switching
+    success: no
+  - command: luckmons switching
+    success: no
+    
+christmas:
+  - command: " "
+    success: yes
+  - command: defiance
+    success: yes
+  - command: DEFIANCE
+    success: yes
+  - command: normal
+    success: yes
+  - command: simple
+    success: no
+  - command: SIMPLE
+    success: no
+  - command: christmas
+    success: yes
+  - command: CHRISTMAS
+    success: yes
+  - command: SIMPLE switching
+    success: no
+  - command: advanced
+    success: no
+  - command: CHRISTMAS switching
+    success: yes
+  - command: dinner
+    success: yes
+  - command: nuclearwinter
+    success: yes
+  - command: newyear
+    success: yes
+  - command: costume
+    success: yes
+  - command: metronome
+    success: yes
+  - command: present
+    success: yes
+  - command: snowball
+    success: yes
+  - command: defiance
+    success: yes
+  - command: randomorder
+    success: yes
+  - command: secrecy
+    success: yes
+  - command: traitor
+    success: yes
+  - command: commitment
+    success: yes
+  - command: speed
+    success: yes
+  - command: fragile
+    success: yes
+  - command: clone
+    success: yes
+  - command: christmas xmas
+    success: yes
+  - command: fragile fragile
+    success: yes
+  - command: clone clone
+    success: yes
+
+    # Combos
+  - command: defiance speed
+    success: yes
+  - command: speed fragile
+    success: yes
+  - command: defiance speed fragile
+    success: yes
+  - command: speed fragile newyear
+    success: yes
+  - command: christmas dinner
+    success: no
+  - command: newyear nuclearwinter
+    success: no
+  - command: costume christmas
+    success: no
+  - command: metronome present
+    success: no
+
+    # Aliases
+  - command: xmas
+    success: yes
+  - command: christmasdinner
+    success: yes
+  - command: nuke
+    success: yes
+  - command: nwinter
+    success: yes
+
+    # Team choice
+  - command: 1,2,3/4,5,6
+    success: yes
+  - command: christmas 1,2,3/4,5,6
+    success: yes
+
+    # Fail
+  - command: simple advanced 1,2,3/4,5,6
+    success: no
+  - command: simple advanced defiance 1,2,3/4,5,6
+    success: no
+  - command: metronome ohko 1,2,3/4,5,6
+    success: no
+  - command: normal defiance
+    success: no
+  - command: fireandice
+    success: no
+  - command: dfafdaf
+    success: no
+  - command: defiance switching
+    success: no
+  - command: randomorder switching
+    success: no
+  - command: hitandrun switching
+    success: no
+  - command: simple advanced defiance switching
+    success: no
+  - command: randomorder explosive switching
+    success: no
+  - command: hitandrun speed switching
+    success: no
+  - command: sync5050 speed fragile switching
+    success: no
+  - command: defiance 1,2,3/4,5,6
+    success: no
+  - command: defiance explosive 1,2,3/4,5,6
+    success: no
+  - command: metronome ohko switching
+    success: no
+  - command: metronome ohko seismictoss kapow switching
+    success: no
+  - command: luckmons switching
+    success: no
+    
+doubles_defiance:
+  -   command: " "
+      success: no
+  -   command: defiance
+      success: no
+  -   command: DEFIANCE
+      success: no
+  -   command: normal
+      success: no
+  -   command: simple
+      success: no
+  -   command: SIMPLE
+      success: no
+  -   command: SIMPLE switching
+      success: no
+  -   command: advanced
+      success: no
+    
+    # Combos
+  -   command: doubles defiance stadium2
+      success: yes
+  -   command: doubles defiance standard advanced
+      success: yes
+  -   command: doubles defiance middlecup
+      success: yes
+  -   command: doubles defiance ubers
+      success: no
+  -   command: doubles defiance dubers
+      success: yes
+  -   command: doubles defiance metronome
+      success: yes
+  -   command: doubles defiance explosive
+      success: yes
+  -   command: defiance explosive
+      success: no
+  -   command: sync5050 speed fragile
+      success: no
+  -   command: simple advanced
+      success: no
+  -   command: simple advanced stadium2 runmons
+      success: no
+  -   command: metronome ohko
+      success: no
+  -   command: metronome ohko seismictoss kapow
+      success: no
+  -   command: sync5050 speed fragile
+      success: no
+  -   command: simple advanced switching
+      success: no
+  -   command: simple advanced stadium2 runmons switching
+      success: no
+  -   command: metronome ohko
+      success: no
+  -   command: metronome ohko seismictoss kapow
+      success: no
+    
+    # Aliases
+  -   command: luckmons
+      success: no
+  -   command: runmon
+      success: no
+  -   command: uber
+      success: no
+  -   command: colorchange
+      success: no
+  -   command: uber colorchange
+      success: no
+    
+    # Team choice
+  -   command: 1,2,3/4,5,6
+      success: no
+  -   command: advanced 1,2,3/4,5,6
+      success: no
+  -   command: simple explosive 1,2,3/4,5,6
+      success: no
+  -   command: randomorder 1,2,3/4,5,6
+      success: no
+  -   command: switching 1,2,3/4,5,6
+      success: no
+  -   command: defiance defiance
+      success: no
+  -   command: simple simple
+      success: no
+    
+    # Fail
+  -   command: simple advanced 1,2,3/4,5,6
+      success: no
+  -   command: simple advanced defiance 1,2,3/4,5,6
+      success: no
+  -   command: metronome ohko 1,2,3/4,5,6
+      success: no
+  -   command: normal defiance
+      success: no
+  -   command: fireandice
+      success: no
+  -   command: dfafdaf
+      success: no
+  -   command: defiance switching
+      success: no
+  -   command: randomorder switching
+      success: no
+  -   command: hitandrun switching
+      success: no
+  -   command: simple advanced defiance switching
+      success: no
+  -   command: randomorder explosive switching
+      success: no
+  -   command: hitandrun speed switching
+      success: no
+  -   command: sync5050 speed fragile switching
+      success: no
+  -   command: defiance 1,2,3/4,5,6
+      success: no
+  -   command: defiance explosive 1,2,3/4,5,6
+      success: no
+  -   command: metronome ohko switching
+      success: no
+  -   command: metronome ohko seismictoss kapow switching
+      success: no
+  -   command: luckmons switching
+      success: no

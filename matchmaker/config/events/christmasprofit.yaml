@@ -1,0 +1,266 @@
+mergeable:
+  default:
+      0:
+        bet_bonus: 20
+        switching_bet_bonus: 45
+
+##################
+# settings
+##################
+event_name: ChristmasProfit
+default_metagame: christmas
+
+
+##################
+metagames:
+##################
+    #########
+    base:
+    #########
+        christmas:          {rarity: 15.0}
+        christmas_green:    {rarity: 15.0}
+        dinner:             {rarity:  3.0}
+        nuclear_winter:
+            rarity:  2.5
+            match_settings:
+                2:
+                    bet_bonus: 15
+                    switching_bet_bonus: 30
+        new_year:           {rarity:  2.5}
+        costume:            {rarity:  2.5}
+        metronome:
+            rarity:  0.4
+            set_tag: christmasmetronome
+            rarify_shinies: no
+            icon_id: cmetronome
+            description: These Pokémon fight by wagging their cozy mittens at one another.
+            match_settings:
+                5:
+                    bet_bonus: 5
+                    switching_bet_bonus: 5
+        present:            {rarity:  0.02}
+        snowball:           {rarity:  0.02}
+
+
+##################
+gimmicks:
+##################
+    #########
+    base:
+    #########
+        normal: {}
+
+        doubles:
+            rarity: 6.0
+            icon_id: cdoubles
+            match_settings:
+                2:
+                    bet_bonus: 35
+                    switching_bet_bonus: 50
+
+        defiance:
+            rarity: 3.0
+            icon_id: cdefiance
+            short_description: Pokémon ignore inputs.
+            description: The Pokémon are on holiday, and aren't taking any calls. Each move has an equal chance to be chosen.
+            match_settings:
+                3:
+                    bet_bonus: 10
+            
+        duel:
+            rarity: 1.5
+            description: Rudolph guides Santa's sleigh, and the top inputter guides their team. Only their input counts!
+            
+        sync5050:
+            rarity: 1.0
+            description: In true holiday spirit, these Pokémon have decided to split the input pool 50-50.
+            match_settings:
+                3:
+                    bet_bonus: 30
+                    switching_bet_bonus: 45
+      
+        random_order:
+            rarity: 1.0
+            icon_id: crandomorder
+            short_description: Team ordering is randomized.
+            description: This match is wrapped up under the tree- no one knows which Pokémon will be unwrapped first!
+            match_settings:
+                2:
+                    bet_bonus: 35
+                    switching_bet_bonus: 50
+     
+        secrecy:
+            rarity: 1.0
+            icon_id: csecrecy
+            short_description: Each team has a hiding Pokémon.
+            description: One Pokémon per team is hiding in their stocking! They'll come out when the match begins.
+            match_settings:
+                3:
+                    bet_bonus: 35
+                    switching_bet_bonus: 50
+       
+        traitor:
+            rarity: 1.0
+            icon_id: ctraitor
+            short_description: Teams exchange two Pokémon.
+            description: These reindeer are real bullies! One per team will turn against their friends when the match begins.
+            match_settings:
+                3:
+                    bet_bonus: 35
+                    switching_bet_bonus: 50
+   
+        blind_bet:
+            rarity: 0.6
+            short_description: No peeking until battle.
+            description: Santa needs all of betting time to place your match under the tree. No peeking until he's gone!
+            match_settings:
+                3:
+                    bet_bonus: 30
+                    switching_bet_bonus: 45
+   
+        commitment:
+            rarity: 1.0
+            icon_id: ccommitment
+            short_description: Can't change input during battle.
+            description: Presents under the tree can't be changed, and neither can inputs after betting closes!
+            match_settings:
+                3:
+                    bet_bonus: 10
+                    switching_bet_bonus: 20
+    
+        sticky_inputs:
+            rarity: 1.0
+            short_description: Only "-" input(s) can be changed.
+            description: Santa got stuck in the chimney! And *you* got stuck with the first move/switch/target input you asked him for.
+
+        inverse:
+            rarity: 2.0
+
+        fog:
+            rarity: 0.5
+        
+        hail:
+            rarity: 0.7
+    
+        speed:
+            rarity: 2.0
+            icon_id: cspeed
+            short_description: The battle is sped up.
+            description: Santa does it all in just one night. This match will fly as fast as he does!
+     
+        fragile:
+            rarity: 1.0
+            icon_id: cfragile
+            short_description: Moves melt after 1 PP.
+            description: Your Pokémon's moves melt faster than snow! Each has only 1 PP.
+            match_settings:
+                1:
+                    bet_bonus: 30
+                    switching_bet_bonus: 45
+        defeatist:      {rarity: 5.0}
+
+        german:
+            rarity: 0.125
+            short_description: "TPP visits Germany for Christmas!"
+            description: "TPP visits Germany for Christmas!"
+
+        french:
+            rarity: 0.125
+            short_description: "TPP visits France for Christmas!"
+            description: "TPP visits France for Christmas!"
+
+        spanish:
+            rarity: 0.125
+            short_description: "TPP visits Spain for Christmas!"
+            description: "TPP visits Spain for Christmas!"
+
+        italian:
+            rarity: 0.125
+            short_description: "TPP visits Italy for Christmas!"
+            description: "TPP visits Italy for Christmas!"
+
+        japanese:
+            rarity: 0.125
+            short_description: "TPP visits Japan for Christmas!"
+            description: "TPP visits Japan for Christmas!"
+
+        pinpoint:
+            rarity: 1.0
+            short_description: Moves won't miss.
+            description: Just like Santa never misses a house, your Pokémon's moves will never miss an opponent.
+            match_settings:
+                1:
+                    bet_bonus: 15
+                    switching_bet_bonus: 30
+
+        chameleon:
+            rarity: 1.0
+            description: Your Pokémon don't want to change their ways for New Year's... they just want to change their colors!
+      
+        adaptable:
+            rarity: 0.5
+            match_settings:
+                1:
+                    bet_bonus: 15
+                    switching_bet_bonus: 30
+      
+        explosive:
+            rarity: 1.0
+            match_settings:
+                1:
+                    bet_bonus: 15
+                    switching_bet_bonus: 30
+            
+        rainbow:
+            rarity: 0.5
+            
+        hit_and_run:
+            rarity: 0.5
+            
+        hidden_ace:
+            rarity: 0.4
+            
+        rngod:
+            rarity: 0.8
+      
+        clone:
+            rarity: 1.0
+            icon_id: cclone
+            species_replace:
+                one_per_match: yes
+                pool:
+                  [Dewgong, Cloyster, Jynx, Lapras, Articuno, Sneasel, Swinub, Piloswine, Delibird, Smoochum, Snorunt, Glalie, Spheal, Sealeo, Walrein, Regice, Snover, Abomasnow, Weavile, Glaceon, Mamoswine, Froslass]
+            display_name: Clone
+            short_description: Pokémon turn into once species.
+            description: Fresh out of the oven, these Pokémon were made with the same cookie cutter.
+            match_settings:
+                1:
+                    bet_bonus: 15
+                    switching_bet_bonus: 30
+            
+        sketchy:
+            rarity: 0.4
+            match_settings:
+                1:
+                    bet_bonus: 15
+                    switching_bet_bonus: 30
+        
+        lucky:
+            rarity: 0.3
+            
+        acid_rain:
+            rarity: 1.0
+
+    #########
+    random_combos:
+    #########
+        defiance_rngod:               {rarity: 2.0}
+        singles_combo_of_2:           {rarity: 3.0}
+        singles_combo_of_3:           {rarity: 1.3}
+        singles_combo_of_4:           {rarity: 0.4}
+        doubles_defiance_combo_of_2:  {rarity: 1.2}
+        doubles_defiance_combo_of_3:  {rarity: 1.5}
+        doubles_defiance_combo_of_4:  {rarity: 0.5}
+        doubles_inputting_combo_of_2: {rarity: 1.4}
+        doubles_inputting_combo_of_3: {rarity: 0.5}
+        doubles_inputting_combo_of_4: {rarity: 0.1}

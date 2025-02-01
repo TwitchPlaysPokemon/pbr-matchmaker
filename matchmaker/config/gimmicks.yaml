@@ -1,0 +1,1055 @@
+################
+base:
+################
+    # Gimmicks are automatically assigned one or more of the commented categories.
+
+    ################
+    # Normal match- no gimmick.
+    ################
+    normal:  # This id is hardcoded and should not be changed.
+        # Rarity is calculated automatically based on the
+        # 'default_gimmick_chance' match setting.
+        display_name: Normal
+        bid_aliases: [normal]
+        description: No special rules or mechanics are applied.
+
+    # Doubles is a battle_change category, but I moved it up here because it's so
+    # important and looks better as the 1st gimmick (ordered dict)
+    doubles:
+        match_settings:
+            1:
+                team_sizes:
+                    !!python/tuple [2,6]:
+                        rarity: 0.0
+                        biddable: yes
+                    !!python/tuple [3,6]:
+                        rarity: 0.0
+                        biddable: yes
+                    !!python/tuple [4,6]:
+                        rarity: 0.0
+                        biddable: yes
+                    !!python/tuple [5,6]:
+                        rarity: 0.0
+                        biddable: yes
+                    !!python/tuple [6,6]:
+                        rarity: 0.0
+                        biddable: yes
+
+                    !!python/tuple [2,5]:
+                        rarity: 0.0
+                        biddable: yes
+                    !!python/tuple [3,5]:
+                        rarity: 0.0
+                        biddable: yes
+                    !!python/tuple [4,5]:
+                        rarity: 0.0
+                        biddable: yes
+                    !!python/tuple [5,5]:
+                        rarity: 0.0
+                        biddable: yes
+
+                    !!python/tuple [2,4]:
+                        rarity: 0.0
+                        biddable: yes
+                    !!python/tuple [3,4]:
+                        rarity: 0.0
+                        biddable: yes
+                    !!python/tuple [4,4]:
+                        rarity: 0.6
+                        biddable: yes
+
+                    !!python/tuple [2,3]:
+                        rarity: 0.0
+                        biddable: yes
+                    !!python/tuple [3,3]:
+                        rarity: 0.25
+                        biddable: yes
+
+                    !!python/tuple [2,2]:
+                        rarity: 0.15
+                        biddable: yes
+        battle_change:
+            tag: doubles
+        display_name: Doubles
+        bid_aliases: [doubles, doublebattle, double]
+        emoji: 👥
+        short_description: A double battle.
+        description: A double battle.
+
+
+    ################
+    # input_change category
+    # This is for MUTUALLY EXCLUSIVE input changing modes only!
+    # All possible combinations of modes in this category will automatically be banned.
+    # If you want your new mode to combine with a mode in this category, please make it a battle_change category instead.
+    ################
+    defiance:
+        # These are not percentages.
+        # In gimmick selection, gimmicks are chosen by accumulating
+        # and then randomly bisecting their rarities.
+        match_settings:
+            1:
+                regular_delay: 0
+                switch_only_delay: 0
+                animation_speed_multiplier: 1.6
+                ally_hit:
+                    33: 3
+                    25: 7
+                    10: 10
+                    5: 20
+                    2: 25
+                    0: 35
+            3:
+                bet_bonus: 25
+                switching_bet_bonus: 20
+            7:
+                switching: permanently_disabled
+        input_change:
+            # Tag for programmer use.
+            tag: defiance
+        display_name: Defiance
+        bid_aliases: [defiance]
+        emoji: 🙉
+        short_description: Inputs are ineffective.
+        description: Inputs are ineffective. Each move will have a probability of 25% to be chosen.
+
+    duel:
+        input_change:
+            tag: duel
+        cooldown: 1
+        display_name: Duel
+        bid_aliases: [duel]
+        emoji: ⚔️
+        short_description: Only team's top inputter plays.
+        description: It's a one on one showdown! The inputter with the most influence on their team gets total control of the team.
+
+    synchronize:
+        disabled: yes
+        match_settings:
+            7:
+                bet_bonus: 0
+                switching_bet_bonus: 0
+        input_change:
+            tag: synchronize
+        cooldown: 1
+        display_name: Synchronize
+        bid_aliases: [synchronize, sync]
+        emoji: 🔄
+        short_description: Teams share the input pool.
+        description: Inputs from both teams are combined into one single input replace pool affecting both sides.
+
+    sync5050:
+        match_settings:
+            3:
+                bet_bonus: 45
+                switching_bet_bonus: 50
+        input_change:
+            tag: sync5050
+        cooldown: 2
+        display_name: Sync 50-50
+        bid_aliases: [sync5050, sync2]
+        emoji: 🔃
+        short_description: Teams share a 50-50 input pool.
+        description: Teams have 50% input influence on each other.
+
+    manvsmachine:
+        match_settings:
+            2:
+                team_sizes:
+                    !!python/tuple [1,6]:
+                        rarity: 0.0
+                        biddable: yes
+                    !!python/tuple [2,6]:
+                        rarity: 0.5
+                        biddable: yes
+                    !!python/tuple [3,6]:
+                        rarity: 1.0
+                        biddable: yes
+                    !!python/tuple [4,6]:
+                        rarity: 0.5
+                        biddable: yes
+                    !!python/tuple [5,6]:
+                        rarity: 0.0
+                        biddable: yes
+                    !!python/tuple [6,6]:
+                        rarity: 0.0
+                        biddable: yes
+
+                    !!python/tuple [1,5]:
+                        rarity: 0.0
+                        biddable: yes
+                    !!python/tuple [2,5]:
+                        rarity: 1.0
+                        biddable: yes
+                    !!python/tuple [3,5]:
+                        rarity: 1.0
+                        biddable: yes
+                    !!python/tuple [4,5]:
+                        rarity: 0.0
+                        biddable: yes
+                    !!python/tuple [5,5]:
+                        rarity: 0.0
+                        biddable: yes
+
+                    !!python/tuple [1,4]:
+                        rarity: 0.0
+                        biddable: yes
+                    !!python/tuple [2,4]:
+                        rarity: 1.0
+                        biddable: yes
+                    !!python/tuple [3,4]:
+                        rarity: 0.0
+                        biddable: yes
+                    !!python/tuple [4,4]:
+                        rarity: 0.0
+                        biddable: yes
+
+                    !!python/tuple [1,3]:
+                        rarity: 0.5
+                        biddable: yes
+                    !!python/tuple [2,3]:
+                        rarity: 0.01
+                        biddable: yes
+                    !!python/tuple [3,3]:
+                        rarity: 0.0
+                        biddable: yes
+
+                    !!python/tuple [1,2]:
+                        rarity: 0.5
+                        biddable: yes
+                    !!python/tuple [2,2]:
+                        rarity: 0.0
+                        biddable: yes
+
+                    !!python/tuple [1,1]:
+                        rarity: 0.0
+                        biddable: yes
+            3:
+                bet_bonus: 0
+                switching_bet_bonus: 0
+            7:
+                switching: permanently_disabled
+        input_change:
+            # Tag for programmer use.
+            tag: manvsmachine
+        display_name: Man Vs. Machine
+        bid_aliases: [manvsmachine, inputsvsdefiance, mvm]
+        icon_id: manvsmachine_v2
+        emoji: 🤖
+        short_description: Only Blue Team can input.
+        description: It's a battle of skill versus luck! Only the Blue Team can vote on inputs, and Red Team will choose moves randomly.
+
+    ################
+    # team_change category
+    ################
+    random_order:
+        match_settings:
+            3:
+                bet_bonus: 45
+                switching_bet_bonus: 45
+            7:
+                # Switching = 0.0 allows for U-turn style switching
+                # if this gimmick gets combined with Hit and Run.
+                switching: 0.0
+        team_change:
+            tag: random_order
+        cooldown: 1
+        display_name: Random Order
+        bid_aliases: [randomorder]
+        emoji: 🤹
+        short_description: Team ordering is randomized.
+        description: The order in which the Pokémon are sent out will be randomized after the match has started.
+
+    secrecy:
+        match_settings:
+            3:
+                bet_bonus: 40
+                switching_bet_bonus: 40
+        team_change:
+            tag: secrecy
+        cooldown: 2
+        display_name: Secrecy
+        bid_aliases: [secrecy]
+        emoji: 🙊
+        short_description: Each team has a hidden Pokémon.
+        description: One Pokémon of each team is hidden and gets revealed after the match has started.
+
+    traitor:
+        match_settings:
+            3:
+                bet_bonus: 40
+                switching_bet_bonus: 40
+        team_change:
+            tag: traitor
+        cooldown: 2
+        display_name: Traitor
+        bid_aliases: [traitor]
+        emoji: 🗡️
+        short_description: "Pokémon at one position # swap teams."
+        description: "The Pokémon at one party position # decide to swap teams! These traitors are revealed when the battle starts."
+
+    blind_bet:
+        match_settings:
+            1:
+                bet_bonus_has_decay: False
+            3:
+                bet_bonus: 40
+                switching_bet_bonus: 40
+        team_change:
+            tag: blind_bet
+        cooldown: 2
+        display_name: Blind Bet
+        bid_aliases: [blindbet, blind]
+        emoji: 🙈
+        short_description: Pokémon hidden until battle.
+        description: The Pokémon are hidden until the battle starts.
+
+    ################
+    # battle_change category
+    ################
+    commitment:
+        match_settings:
+            1:
+                switching: .25
+                regular_delay: 0
+                switch_only_delay: 0
+                animation_speed_multiplier: 1.6
+        battle_change:
+            tag: commitment
+        cooldown: 2
+        display_name: Commitment
+        bid_aliases: [commitment]
+        emoji: 💍
+        short_description: Can't change input during battle.
+        description: After betting ends, player inputs may no longer be changed.
+
+    sticky_inputs:
+        match_settings:
+            1:
+                switching: .25
+                regular_delay: 0
+                switch_only_delay: 0
+                animation_speed_multiplier: 1.6
+        battle_change:
+            tag: sticky_inputs
+        cooldown: 2
+        display_name: Sticky Inputs
+        bid_aliases: [stickyinputs, sticky, stickykeys, stuckinputs, stuck]
+        emoji: 📌
+        short_description: Only "-" input(s) can be changed.
+        description:  Players are locked into their first valid move/switch/target input, but they can make the input at any time.
+
+    defeatist:
+        display_name: Defeatist
+        bid_aliases: [defeatist, defeat, losetowin]
+        emoji: 🧛
+        cooldown: 2
+        short_description: Loser gets the payout.
+        description: The payout for this match goes to the loser instead.
+        icon_id: dracula
+        battle_change:
+            tag: defeatist
+        match_settings:
+            2:
+                ally_hit:
+                    100: 10
+                    50: 10
+                    33: 10
+                    25: 10
+                    10: 10
+                    0: 10
+            7:
+                # Switching = 0.0 allows for U-turn style switching
+                # if this gimmick gets combined with Hit and Run.
+                switching: 0.0
+
+    inverse:
+        cooldown: 1
+        display_name: Inverse
+        bid_aliases: [inverse, inversebattle]
+        emoji: 🔀
+        icon_id: swap
+        short_description: Type matchups are inverted.
+        description: Type matchups are inverted, with immunities replaced by weaknesses.
+        match_settings:
+            7:
+                effectiveness: inverse
+
+    fog:
+        # biddable: no
+        battle_change:
+            tag: fog
+        cooldown: 3
+        display_name: Fog
+        bid_aliases: [fog]
+        emoji: 🌫️
+        short_description: Moves are 60% as accurate.
+        description: The Colosseum is shrouded in a deep fog!  Moves are 60% as accurate.
+
+    hail:
+        battle_change:
+            tag: hail
+        cooldown: 1
+        display_name: Hail
+        bid_aliases: [hail]
+        emoji: ❄️
+        short_description: It's hailing in the Colosseum.
+        description: The Colosseum is getting pelted by giant hail!
+
+    speed:
+        match_settings:
+            1:
+                regular_delay: 0
+                switch_only_delay: 0
+                animation_speed_multiplier: 2.0
+                bet_bonus: 35
+                switching_bet_bonus: 40
+        battle_change:
+            tag: speed
+        cooldown: 1
+        display_name: Speed
+        bid_aliases: [speed]
+        emoji: ⏩
+        short_description: The battle is sped up.
+        description: The battle is sped up. There are no delays, and animations play faster.
+
+    fragile:
+        match_settings:
+            7:
+                # Switching = 0.0 allows for U-turn style switching
+                # if this gimmick gets combined with Hit and Run.
+                switching: 0.0
+        battle_change:
+            tag: fragile
+        cooldown: 2
+        display_name: Fragile
+        bid_aliases: [fragile]
+        emoji: 🍷
+        short_description: All moves start with 1 PP.
+        description: All moves will start with exactly 1 PP.
+
+    audio_only:
+        biddable: no
+        battle_change:
+            tag: audio_only
+        cooldown: 1
+        display_name: Audio Only
+        bid_aliases: [audioonly, soundonly]
+        emoji: 👂
+        short_description: Only audio plays during battle.
+        description: The battle isn't shown onscreen- only its audio can be heard.
+
+    timed:
+        battle_change:
+            tag: timed_battle
+        cooldown: 2
+        display_name: Timed
+        bid_aliases: [timed, timer]
+        emoji: ⏲️
+        icon_id: clock
+        short_description: Battle ends after 5 min.
+        description: "It's a 5 minute match! Tiebreaks: Most not fainted, then highest average % of HP remaining."
+        match_settings:
+            1:
+                battle_timer: 5
+
+    afflicted:
+        battle_change:
+            tag: status_nv_random
+        cooldown: 3
+        display_name: Afflicted
+        bid_aliases: [afflicted, affliction, afflict]
+        emoji: 🦠
+        icon_id: germ
+        short_description: Pokémon get a random status.
+        description: All Pokémon start the match with a random nonvolatile status condition.
+
+    80_perc_hp:
+        battle_change:
+            tag: 80_perc_hp
+        cooldown: 2
+        display_name: Injured
+        bid_aliases: [injured, injury, 80%hp, 80percenthp, 80hp]
+        emoji: 🤕
+        short_description: Pokémon start at 80% HP.
+        description: All Pokémon start the match at only 80% of their max HP.
+
+    1_hp:
+        battle_change:
+            tag: 1_hp
+        cooldown: 1
+        display_name: 1 HP
+        bid_aliases: [1hp]
+        emoji: ☠️
+        icon_id: raccoon
+        short_description: Pokémon start at 1 HP.
+        description: Pokémon start the match with just 1 HP remaining.
+
+    german:
+        cooldown: 2
+        display_name: German
+        bid_aliases: [german, de]
+        emoji: 🇩🇪
+        icon_id: brandenburg
+        short_description: The game plays in German.
+        description: The game, including announcer, plays in German.
+        match_settings:
+            7:
+                pbr:
+                    custom_iso: ''
+                    iso_language: 'german'
+                    custom_announcer: ''
+
+    french:
+        cooldown: 2
+        display_name: French
+        bid_aliases: [french, fr]
+        emoji: 🇫🇷
+        icon_id: eiffel
+        short_description: The game plays in French.
+        description: The game, including announcer, plays in French.
+        match_settings:
+            7:
+                pbr:
+                    custom_iso: ''
+                    iso_language: 'french'
+                    custom_announcer: ''
+
+    spanish:
+        cooldown: 2
+        display_name: Spanish
+        bid_aliases: [spanish, es]
+        emoji: 🇪🇸
+        icon_id: la_sagrada
+        short_description: The game plays in Spanish.
+        description: The game, including announcer, plays in Spanish.
+        match_settings:
+            7:
+                pbr:
+                    custom_iso: ''
+                    iso_language: 'spanish'
+                    custom_announcer: ''
+
+    italian:
+        cooldown: 2
+        display_name: Italian
+        bid_aliases: [italian, it]
+        emoji: 🇮🇹
+        icon_id: colosseum
+        short_description: The game plays in Italian.
+        description: The game, including announcer, plays in Italian.
+        match_settings:
+            7:
+                pbr:
+                    custom_iso: ''
+                    iso_language: 'italian'
+                    custom_announcer: ''
+
+    japanese:
+        cooldown: 2
+        display_name: Japanese
+        bid_aliases: [japanese, ja]
+        emoji: 🇯🇵
+        icon_id: torii
+        short_description: The game plays in Japanese.
+        description: The game, including announcer, plays in Japanese.
+        match_settings:
+            7:
+                pbr:
+                    custom_iso: 'ja'
+                    iso_language: 'japanese'
+                    custom_announcer: ''
+
+    hidden_bets:
+        battle_change:
+            tag: hidden_bet
+        display_name: Hidden Bets
+        bid_aliases: [hiddenbets, hiddenbet]
+        emoji: 🗳️
+        icon_id: blind2
+        short_description: Bets invisible until final 30 sec.
+        description: Bets are invisible until the last 30 seconds, and you can bet via whispers.
+
+    communism:
+        display_name: Communism
+        bid_aliases: [communism, communist]
+        emoji: ☭
+        icon_id: socialism
+        short_description: Min bid for input & equal influence.
+        description: Comrades that meet the mandated minimum bid get to input and have equal input influence.
+        battle_change:
+            tag: communism
+
+    ################
+    # species_replace category
+    ################
+
+    ################
+    # ability_replace category
+    ################
+    pinpoint:
+        match_settings:
+            1:
+                bet_bonus: 15
+                switching_bet_bonus: 20
+        ability_replace:
+            pool:
+              - No Guard
+        cooldown: 2
+        display_name: Pinpoint
+        bid_aliases: [pinpoint, noguard]
+        emoji: 🎯
+        short_description: Pokémon get No Guard.
+        description: All abilities get replaced with No Guard. (Moves cannot miss.)
+
+    chameleon:
+        ability_replace:
+            pool:
+              - Color Change
+        cooldown: 2
+        display_name: Chameleon
+        bid_aliases: [chameleon, colorchange]
+        emoji: 🦎
+        short_description: Pokémon get Color Change.
+        description: All abilities get replaced with Color Change. (Changes the Pokémon's type to the type of the move used on it.)
+
+    shield:
+        ability_replace:
+            pool:
+              - Shield Dust
+        cooldown: 2
+        display_name: Shield
+        bid_aliases: [shield, shielddust]
+        emoji: 🛡️
+        short_description: Pokémon get Shield Dust.
+        description: All abilities get replaced with Shield Dust. (Moves only do damage, with no added effects.)
+
+    armor:
+        ability_replace:
+            pool:
+              - Battle Armor
+              - Shell Armor
+        cooldown: 2
+        display_name: Armor
+        bid_aliases: [armor, battlearmor, shellarmor]
+        emoji: 🐚
+        short_description: Pokémon get Battle/Shell Armor.
+        description: All abilities get replaced with Battle or Shell Armor. (Critical hits are impossible.)
+
+    adaptable:
+        match_settings:
+            1:
+                bet_bonus: 20
+                switching_bet_bonus: 25
+        ability_replace:
+            pool:
+              - Adaptability
+        cooldown: 2
+        display_name: Adaptable
+        bid_aliases: [adaptable, adapt, adaptability]
+        emoji: 🛠️
+        short_description: Pokémon get Adaptability.
+        description: All abilities get replaced with Adaptability. (STAB is 2x instead of 1.5x.)
+
+    ################
+    # move_replace category
+    ################
+    explosive:
+        match_settings:
+            1:
+                bet_bonus: 15
+                switching_bet_bonus: 20
+        move_replace:
+            pool:
+              - Self-Destruct
+              - Explosion
+        cooldown: 2
+        display_name: Explosive
+        bid_aliases: [explosive, explode, explosion, selfdestruct]
+        emoji: 💣
+        icon_id: kapow
+        short_description: Pokémon get an exploding move.
+        description: Each Pokémon has one random move replaced with Explosion or Self Destruct.
+
+    rainbow:
+        # An old idea was to replace abilities with serene grace.
+        # If accepted, this should move to the "multi replace"
+        # section below, just for organizational purposes.
+        move_replace:
+            pool:
+              - Ominous Wind
+              - Ancient Power
+              - Silver Wind
+        cooldown: 2
+        display_name: Rainbow
+        bid_aliases: [rainbow, kappapride]
+        emoji: 🌈
+        short_description: Pokémon get a 5-stat boost move.
+        description: All Pokémon have a random move replaced with one that has a 10% chance to raise all of the user's stats.
+
+    hit_and_run:
+        match_settings:
+            7:
+                switching: special
+        move_replace:
+            pool:
+              - U-turn
+        cooldown: 2
+        display_name: Hit & Run
+        bid_aliases: [hitandrun, hit&run, uturn]
+        emoji: ↩️
+        short_description: Pokémon get U-Turn.
+        description: Each Pokémon has one random move replaced with U-Turn. Switch votes only apply if U-Turn was used.
+
+    hidden_ace:
+        move_replace:
+            pool:
+              - Trump Card
+            pp: 1
+        cooldown: 2
+        display_name: Hidden Ace
+        bid_aliases: [hiddenace, ace, trumpcard]
+        emoji: 🃏
+        short_description: Pokémon get Trump Card.
+        description: Each Pokémon has one random move replaced with Trump Card at 1PP. (The move has 200 power.)
+
+    letdown:
+        move_replace:
+            pool:
+              - Splash
+        cooldown: 2
+        display_name: Letdown
+        bid_aliases: [letdown, splash]
+        emoji: 💦
+        short_description: Pokémon get Splash.
+        description: Each Pokémon has one random move replaced with Splash.
+
+    departed:
+        match_settings:
+            1:
+                bet_bonus: 15
+                switching_bet_bonus: 20
+        move_replace:
+            pool:
+              - Memento
+        cooldown: 1
+        display_name: Departed
+        bid_aliases: [departed]
+        emoji: ⚰️
+        short_description: Pokémon get a sacrificial move.
+        description: These Pokémon are ready to move on, and curse those that remain.
+
+    ################
+    # pokemon_theme category
+    ################
+    fire_and_ice:
+        biddable: no
+        pokemon_theme:
+            any_tags:
+              - 'type+Fire'
+              - 'type+Ice'
+        cooldown: 1
+        display_name: Fire and Ice
+        bid_aliases: [fireandice]
+        emoji: 🔥
+        short_description: Pokémon are Fire/Ice types.
+        description: Only fire and ice type Pokémon are allowed.
+
+    sky_battle:
+        biddable: no
+        pokemon_theme:
+            any_tags:
+              - 'type+Flying'
+              - 'ability+Levitate'
+        cooldown: 1
+        display_name: Sky Battle
+        bid_aliases: [skybattle]
+        emoji: 🦅
+        short_description: Pokémon are flying/levitating.
+        description: Only flying type and levitating Pokémon are allowed.
+
+    # Gimmicks that will be assigned multiple categories
+    # E.g. something that replaces both moves and abilities
+    ################
+    # multi category
+    ################
+    rngod:
+        species_replace:
+            randomize_ivs: True
+            randomize_evs: True
+            shinify_chance: 0.015
+            randomize_happiness: True
+        ability_replace: {}
+        item_replace: {}
+        move_replace:
+            replace_all: yes
+        cooldown: 3
+        display_name: RNGod
+        bid_aliases: [rngod, rnggod]
+        emoji: 🎲
+        short_description: Pokémon are totally randomized.
+        description: All Pokémon species, abilities, items, moves, IVs, and EVs are randomized.
+
+    clone:
+        match_settings:
+            1:
+                bet_bonus: 15
+                switching_bet_bonus: 20
+        species_replace:
+            one_per_match: yes
+            pool_blacklist:
+              - Shedinja
+        item_replace:
+            pool:
+              - Sticky Barb
+            only_for_species:
+                [Lugia, Giratina, Metagross, Registeel, Jirachi,
+                Kyogre, Groudon, Palkia, Dialga, Heatran,
+                Forretress, Steelix, Aggron, Regirock, Bronzong, Probopass,
+                Shuckle, Bastiodon, Shieldon, Dusclops, Metang, Umbreon, Skarmory,
+                Chansey, Blissey, Deoxys-Defense]
+        cooldown: 4
+        display_name: Clone
+        bid_aliases: [clone]
+        emoji: 🐑
+        short_description: Pokémon turn into one species.
+        description: All Pokémon become the same species, but otherwise keep their sets.
+
+    sketchy:
+        match_settings:
+            1:
+                bet_bonus: 20
+                switching_bet_bonus: 25
+        species_replace:
+            pool:
+              - Smeargle
+        move_replace:
+            pool:
+              - Sketch
+        cooldown: 4
+        display_name: Sketchy
+        bid_aliases: [sketchy, sketch]
+        emoji: 🖌️
+        short_description: Pokémon are Smeargles w/ Sketch.
+        description: Pokémon are replaced by Smeargles and get the move Sketch (Learns the target's last move).
+
+    lucky:
+        ability_replace:
+            pool:
+              - Super Luck
+        item_replace:
+            pool:
+              - Scope Lens
+        cooldown: 2
+        display_name: Lucky
+        bid_aliases: [lucky, superluck]
+        emoji: 🍀
+        short_description: High critical hit chances.
+        description: All Pokémon get the Super Luck ability, and possibly the Scope Lens item (Increased chance for critical hits).
+
+    boing:
+        ability_replace:
+            pool:
+              - Skill Link
+        move_replace:
+            pool:
+              - Barrage
+        cooldown: 2
+        display_name: Boing
+        bid_aliases: [boing, barrage]
+        emoji: 🏸
+        short_description: Pokémon get 5-hit Barrages.
+        description: All Pokémon get the Skill Link ability and the move Barrage (All multi-hit moves like Barrage hit 5 times).
+
+    acid_rain:
+        ability_replace:
+            pool:
+              - Drizzle
+              - Drought
+              - Sand Stream
+              - Snow Warning
+        move_replace:
+            pool:
+              - Weather Ball
+        cooldown: 2
+        display_name: Acid Rain
+        bid_aliases: [acidrain]
+        emoji: 🌧️
+        short_description: Pokémon get weather capabilities.
+        description: All Pokémon get the move Weather Ball and a random weather inducing ability.
+
+    dev1:
+#        ability_replace:
+#            pool:
+#              - Trace
+#              - Arena Trap
+        move_replace:
+            pool:
+              - Disable
+              - Hyper Beam
+              - Dig
+              - Mimic
+              - Bide
+              - Roar
+              - Whirlwind
+              - Self-Destruct
+              - Transform
+              - Conversion
+              - Sketch
+              - Spikes
+              - Baton Pass
+              - Hidden Power
+              - Torment
+              - Block
+              - Fling
+              - Toxic Spikes
+              - Stealth Rock
+              - U-turn
+              - Helping Hand
+        display_name: Dev 1
+        bid_aliases: [dev1]
+        emoji: 🦝
+        icon_id: raccoon
+        short_description: Dev 1
+        description: Dev 1
+
+    dev2:
+        #        ability_replace:
+        #            pool:
+        #              - Trace
+        move_replace:
+            pool:
+                - Explosion
+                - Spikes
+                - Baton Pass
+                - Pain Split
+                - Recover
+                - Splash
+                - Transform
+                - Sheer Cold
+                - Dragon Rage
+                - Hypnosis
+                - Dark Void
+        display_name: Dev 2
+        bid_aliases: [dev2]
+        emoji: 🦝
+        icon_id: raccoon
+        short_description: Dev 2
+        description: Dev 2
+
+################
+random_combos:
+################
+    s2_defiance_and_random_order:
+        biddable: no
+        # * is a placeholder for any gimmick.
+        # Any two gimmicks will be present.
+        sub_modes: [defiance, random_order]
+        emoji: 🧬
+        display_name: Combo
+        icon_id: combo
+        description: # Leave blank for auto generated description.
+
+    defiance_rngod:
+        biddable: no
+        sub_modes: [defiance, rngod]
+        emoji: 🧬
+        display_name: Combo
+        icon_id: combo
+        description: # Leave blank for auto generated description.
+
+    combo_of_2:
+        # * is a placeholder for any gimmick.
+        # Any two gimmicks will be present.
+        sub_modes: ["*", "*"]
+        emoji: 🧬
+        display_name: Combo
+        icon_id: combo
+        description: # Leave blank for auto generated description.
+
+    combo_of_3:
+        sub_modes: ["*", "*", "*"]
+        emoji: 🧬
+        display_name: Combo
+        icon_id: combo
+        description: # Leave blank for auto generated description.
+
+    combo_of_4:
+        sub_modes: ["*", "*", "*", "*"]
+        emoji: 🧬
+        display_name: Combo
+        icon_id: combo
+        description: # Leave blank for auto generated description.
+
+    singles_combo_of_2:
+        # * is a placeholder for any gimmick.
+        # Any two gimmicks will be present.
+        sub_modes: ["*", "*"]
+        emoji: 🧬
+        sub_mode_blacklist: &singles_combo_of_2_blacklist
+            - doubles
+        display_name: Combo
+        icon_id: combo
+        description: # Leave blank for auto generated description.
+
+    singles_combo_of_3:
+        sub_modes: ["*", "*", "*"]
+        emoji: 🧬
+        sub_mode_blacklist: *singles_combo_of_2_blacklist
+        display_name: Combo
+        icon_id: combo
+        description: # Leave blank for auto generated description.
+
+    singles_combo_of_4:
+        sub_modes: ["*", "*", "*", "*"]
+        emoji: 🧬
+        sub_mode_blacklist: *singles_combo_of_2_blacklist
+        display_name: Combo
+        icon_id: combo
+        description: # Leave blank for auto generated description.
+
+    doubles_inputting_combo_of_2:
+        sub_modes: [doubles, "*"]
+        emoji: 🧬
+        sub_mode_blacklist: &doubles_inputting_sub_mode_blacklist
+          - defiance
+        display_name: Combo
+        icon_id: combo
+        description: # Leave blank for auto generated description.
+
+    doubles_inputting_combo_of_3:
+        sub_modes: [doubles, "*", "*"]
+        emoji: 🧬
+        sub_mode_blacklist: *doubles_inputting_sub_mode_blacklist
+        display_name: Combo
+        icon_id: combo
+        description: # Leave blank for auto generated description.
+
+    doubles_inputting_combo_of_4:
+        sub_modes: [doubles, "*", "*", "*"]
+        emoji: 🧬
+        sub_mode_blacklist: *doubles_inputting_sub_mode_blacklist
+        display_name: Combo
+        icon_id: combo
+        description: # Leave blank for auto generated description.
+
+    doubles_defiance_combo_of_2:
+        sub_modes: [doubles, defiance]
+        emoji: 🧬
+        display_name: Combo
+        icon_id: combo
+        description: # Leave blank for auto generated description.
+
+    doubles_defiance_combo_of_3:
+        sub_modes: [doubles, defiance, "*"]
+        emoji: 🧬
+        display_name: Combo
+        icon_id: combo
+        description: # Leave blank for auto generated description.
+
+    doubles_defiance_combo_of_4:
+        sub_modes: [doubles, defiance, "*", "*"]
+        emoji: 🧬
+        display_name: Combo
+        icon_id: combo
+        description: # Leave blank for auto generated description.

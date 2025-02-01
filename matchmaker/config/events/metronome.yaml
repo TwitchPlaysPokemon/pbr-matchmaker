@@ -1,0 +1,81 @@
+##################
+# settings
+##################
+event_name: "Test Your Luck"
+
+default_metagame: metronome
+
+shiny_chance: 0.005
+
+##################
+metagames:
+##################
+    #########
+    base:
+    #########
+        metronome:
+            rarity:  4.0
+            cooldown: 0
+
+##################
+gimmicks:
+##################
+    #########
+    base:
+    #########
+        # input change
+        defiance:
+            rarity: 1.5
+        manvsmachine:
+            rarity: 1.5
+        random_order:
+            rarity: 1.0
+        secrecy:
+            rarity: 1.0
+        traitor:
+            rarity: 1.0
+        blind_bet:
+            rarity: 0.6
+        # battle change
+        doubles:
+            rarity: 15.0
+        inverse:        {rarity: 2.0}
+        fog:            {rarity: 1.4}
+        speed:
+            rarity: 2.0
+        fragile:
+            rarity: 1.0
+        80_perc_hp:     {rarity: 0.5}
+        afflicted:      {rarity: 0.5}
+        defeatist:      {rarity: 5.0}
+        timed:          {rarity: 1.0}
+        german:         {rarity: 0.125}
+        french:         {rarity: 0.125}
+        spanish:        {rarity: 0.125}
+        italian:        {rarity: 0.125}
+        japanese:       {rarity: 0.125}
+        # x-replace
+        pinpoint:
+            rarity: 1.0
+        chameleon:      {rarity: 1.0}
+        shield:         {rarity: 0.2}
+        armor:          {rarity: 0.2}
+        adaptable:
+            rarity: 0.5
+        fire_and_ice:   {rarity: 0.2}
+        sky_battle:     {rarity: 0.5}
+        clone:
+            rarity: 1.0
+        lucky:          {rarity: 0.3}
+        hidden_bets:    {rarity: 5.0}
+        #        dev2:           {rarity: 0.0}
+    #########
+    random_combos:
+    #########
+        s2_defiance_and_random_order:   {rarity: 0.0}
+        singles_combo_of_2:             {rarity: 3.0}
+        singles_combo_of_3:             {rarity: 0.3}
+        # Doubles is separate, just for more precise control over the rarities
+        doubles_defiance_combo_of_2:    {rarity: 1.5}
+        doubles_defiance_combo_of_3:    {rarity: 0.2}
+        doubles_defiance_combo_of_4:    {rarity: 0.04}

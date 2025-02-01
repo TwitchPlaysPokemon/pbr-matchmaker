@@ -1,0 +1,5 @@
+# pip install -Ur requirements.txt
+pymongo
+rainbow-logging-handler
+gevent
+git+https://github.com/TwitchPlaysPokemon/pokecat.git@v1.6.3#egg=pokecat

@@ -1,0 +1,161 @@
+##################
+# settings
+##################
+event_name: Doubles Defiance
+
+default_gimmick_chance: 0.45
+
+must_contain_all_gimmicks:
+  - doubles
+  - defiance
+
+################################
+multi_mode_ceilings:
+################################
+    defiance_subset_exemptions:
+        # If:
+        # - defiance, and
+        # - user made no choice for the cloned pokemon, and
+        # - the match metagames are a subset of the modes listed here:
+        # Then the ceiling is equal to the smallest value here for modes in the match.
+        simple: 10
+        advanced: 10
+        dubers: 10
+        middle_cup: 10
+        little_cup: 10
+        anime: 10
+        manga: 10
+        runmons: 10
+        stadium2: 10
+        metronome: 10
+        rngod: 10
+        pwt: 10
+
+##################
+metagames:
+##################
+    #########
+    base:
+    #########
+        simple:       {rarity: 30.0}
+        advanced:     {rarity: 10.0}
+        dubers:
+            rarity:  3.0
+            gimmick_rarity_whitelist:
+                - doubles_defiance_combo_of_2
+                - doubles_defiance_combo_of_3
+                - doubles_defiance_combo_of_4
+#        ubers:        {rarity:  3.0}
+        middle_cup:   {rarity:  3.5}
+        little_cup:   {rarity:  4.0}
+        stadium2:
+            rarity:  2.5
+            gimmick_rarity_whitelist:
+                - s2_defiance_and_random_order
+            gimmick_rarities:
+                s2_defiance_and_random_order: 1.0
+        runmons:      {rarity:  4.0}
+        anime:        {rarity:  4.0}
+        manga:        {rarity:  4.0}
+        pwt:          {rarity:  4.0}
+        metronome:
+            rarity:  0.8
+            match_settings:
+                5:
+                    bet_bonus: 10
+        ohko:         {rarity:  0.02}
+        seismic_toss: {rarity:  0.01}
+        kapow:        {rarity:  0.02}
+        rough_skin:   {rarity:  0.01}
+        # input_war:    {rarity:  0.03}
+        type_warfare: {rarity:  2.0}
+        color_clash:  {rarity:  2.0}
+        
+    #########
+    versus_mixes:
+    #########
+        vs_mix:       {rarity: 2.0}
+        
+    #########
+    random_mixes:
+    #########
+        random_mix_auto: {rarity: 3.0}
+        random_mix_bid:  {rarity: 0.0}
+        random_mix_bid2: {rarity: 0.0}
+        random_mix_bid3: {rarity: 0.0}
+        luckmons:        {rarity: 0.0}
+        
+        
+##################
+gimmicks:
+##################
+    #########
+    base:
+    #########
+        # The `base` rarities below are all set to zero, because otherwise they'd happen
+        # on their own without the match being in doubles and defiance as well.
+        
+        # input change
+        defiance:
+            rarity: 0.0  # Rarity has no effect, see must_contain_any_gimmicks for details.
+            match_settings:
+                3:
+                    bet_bonus: 10
+        # team change
+        random_order:   {rarity: 1.0}  # 1.0}
+        secrecy:        {rarity: 1.0}  # 1.0}
+        traitor:        {rarity: 1.0}  # 1.0}
+        blind_bet:      {rarity: 0.6}  # 0.6}
+        # battle change
+        doubles:        {rarity: 0.0}  # 3.0}  # Rarity has no effect, see must_contain_any_gimmicks for details.
+        inverse:        {rarity: 2.0}
+#        fog:            {rarity: 2.0}  # 1.4}
+        speed:          {rarity: 1.0}  # 2.0}
+        fragile:        {rarity: 1.0}  # 1.0}
+        80_perc_hp:     {rarity: 0.5}
+        afflicted:      {rarity: 0.5}
+        defeatist:      {rarity: 5.0}
+        timed:          {rarity: 1.0}
+        german:         {rarity: 0.125}
+        french:         {rarity: 0.125}
+        spanish:        {rarity: 0.125}
+        italian:        {rarity: 0.125}
+        japanese:       {rarity: 0.125}
+        # x-replace
+        pinpoint:       {rarity: 1.0}  # 1.0}
+        chameleon:      {rarity: 1.0}  # 1.0}
+        shield:         {rarity: 0.2}  # 0.2}
+        armor:          {rarity: 0.2}  # 0.2}
+        adaptable:      {rarity: 0.5}  # 0.5}
+        explosive:      {rarity: 1.0}  # 1.0}
+        rainbow:        {rarity: 0.5}  # 0.5}
+        hit_and_run:    {rarity: 0.5}  # 0.5}
+        hidden_ace:     {rarity: 0.4}  # 0.4}
+        letdown:        {rarity: 0.1}  # 0.1}
+        fire_and_ice:   {rarity: 0.2}  # 0.2}
+        sky_battle:     {rarity: 0.5}  # 0.5}
+        rngod:          {rarity: 1.0}  # 0.6}
+        clone:          {rarity: 1.0}  # 1.0}
+        sketchy:        {rarity: 0.4}  # 0.4}
+        lucky:          {rarity: 0.3}  # 0.3}
+        boing:          {rarity: 0.1}  # 0.1}
+        acid_rain:      {rarity: 0.8}  # 1.0}
+    #########
+    random_combos:
+    #########
+        s2_defiance_and_random_order:   {rarity: 0.0}
+        defiance_rngod:                 {rarity: 0.4}
+        singles_combo_of_2:             {rarity: 3.0}
+        # Doubles is separate, just for more precise control over the rarities
+        doubles_defiance_combo_of_2:    {rarity: 1.5}
+        doubles_defiance_combo_of_3:    {rarity: 0.2}
+        doubles_defiance_combo_of_4:    {rarity: 0.04}
+#
+#
+###################
+restrictions:
+###################
+    lift_restrictions:
+      - [ubers, defiance]
+#      - [defiance, fog]
+#      - [defiance, letdown]

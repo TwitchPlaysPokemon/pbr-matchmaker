@@ -1,0 +1,446 @@
+---
+################################################################
+################################################################
+# PBR Match Configuration
+#
+# If you are new to YAML, download Notepad++ to take advantage of
+# colored syntax highlighting for much easier reading.
+#
+################################################################
+################################################################
+
+
+# Attempt to make balanced matches.
+make_balanced_matches: yes
+
+# Acceptable value for winchance estimate from the match analysis tool.
+# Percentage between 50 and 100.  Lower = more balanced.
+acceptable_estimated_winchance: 60
+
+# Maxixmum number of different matches to generate and test,
+# in the attempt to find a balanced match.
+max_attempts: 20
+
+shiny_chance: 0.00048828125  # 1 / 2048, in practice this is around 1 shiny every 3-4 days.
+
+# Chance that a gimmick gets picked.
+default_gimmick_chance: 0.45
+
+# Auto-generated matches will additionally have all the modes listed here.
+# If default_gimmick_chance is .45, then 55% of matches will contain only the modes listed here,
+# unless must_contain_any_gimmicks is nonempty.
+# Match bids must contain all the modes in this list.
+# WARNING: Banned gimmick combinations that occur as a direct result of modes added to this
+# list are currently NOT detected.  E.g., if duel is present in your event file, and you add
+# defiance to must_contain_*, they WILL attempt to combine with unfortunate results.
+must_contain_all_gimmicks: []
+
+# Auto-generated matches will additionally have at least one of the modes listed here.
+# If default_gimmick_chance is .45, then 55% of matches will contain only the modes listed in
+# must_contain_all_gimmicks (if any) plus one random mode from must_contain_any_gimmicks.
+# Match bids must contain at least one of the modes in this list.
+# WARNING: Banned gimmick combinations that occur as a direct result of modes added to this
+# list are currently NOT detected.  E.g., if duel is present in your event file, and you add
+# defiance to must_contain_*, they WILL attempt to combine with unfortunate results.
+must_contain_any_gimmicks: []
+
+# These are used for processing custom matches.
+max_metagames: 4
+max_gimmicks: 4
+default_metagame: simple  # Changeable.
+default_gimmick: normal  # Changing is NOT supported currently.
+
+# Cooldown for token matches with uneven teams.
+uneven_teams_cooldown: 5
+
+# "Soft" limit on team sizes
+team_size_soft_limit: 4
+
+# Cooldown for matches with teams that go above this limit
+large_teams_cooldown: 2
+
+fake_mode_icon_ids:
+    [screwball, biohazard, recycle, snail, spooky, springy, unicorn,
+     idea, fishy, trash, atomic, gears, puppet, graph,
+     jiggy, egg, departed, raccoon, box, certificate, germ, sliders]
+
+
+################################
+rotations:
+################################
+    # Rotating selection of available gimmicks
+    # Inspired by Splatoon map selection.
+    enabled: no
+    gimmicks_per_rotation: 2
+    rotation_duration: 1    # In hours.
+    gimmick_chance: .6
+
+
+################################
+bet_limits:
+################################
+    bet_limit_type: "bands"
+    betting_start:
+        limit:     # Set an amount if desired.
+    after_betting_start:
+        # Add entries if desired.
+    before_betting_end:
+        # Add or remove entries as desired.
+      - seconds: 40
+        limit: 50000
+      - seconds: 20
+        limit: 5000
+
+
+################################
+bet_bonus_decay:
+################################
+    # Points define sections of linear decay.
+    # The bet_bonus at these points is 'bet_bonus' * 'bonus multiplier'.
+    #
+    # Points must preserve chronological order.
+    # Betting duration is variable with the song length.
+    #
+    # Only numerical values can be changed.
+    # Metagames and gimmicks cannot specify different values.
+    betting_start:
+        bonus_multiplier: 1
+    after_betting_start:
+      - seconds: 25
+        bonus_multiplier: 1
+      - seconds: 40
+        bonus_multiplier: 0.75
+      - seconds: 70
+        bonus_multiplier: 0.5
+    before_betting_end:
+      - seconds: 25
+        bonus_multiplier: 0
+    betting_end:
+        bonus_multiplier: 0
+
+
+################
+mergeable:
+################
+    # Settings that depend heavily on the modes (metagames / gimmicks) and factors (see one_move_per_pokemon and team_choice) that are present in the match.  Each mode/factor specifies its own subset of settings.  An algorithm then merges these subsets together, along with a subset of default setting values, to determine the final values for these settings.
+
+    # Settings must be contained within "priority brackets", which are simply numeric keys between 0 and 7 inclusive.  For any given setting, a value in a higher bracket overrides a value in a lower bracket. If >1 value is present in the highest bracket present, the resolution is setting-dependent (see default settings below).
+
+    # Example:
+    #
+    # Mode 1 settings:
+    #     2:
+    #         bet_bonus: 15
+    #     3:
+    #         switching: .75
+    #
+    # Mode 2 settings:
+    #     2:
+    #         bet_bonus: 45
+    #     7:
+    #         switching: permanently_disabled
+    #
+    # For a match with both modes 1 and 2:
+    # - switching will be `permanently_disabled` because that value is in a higher bracket (7 > 3).
+    # - The bet_bonus will be 15%, because bet bonus conflicts are resolved by "lowest wins" (15 < 45).
+
+    ################
+    default:
+    ################
+        # These default settings are always merged in.
+        # Resolutions within a bracket are specified here, e.g., "Lowest wins".
+        0:
+            # Delay in seconds before attempting a move or switch. Lowest wins.
+            regular_delay: 4
+
+            # Delay in seconds before attempting an input that must be a switch. Lowest wins.
+            switch_only_delay: 5
+
+            # PBR emulation speed multipler. Highest wins.
+            animation_speed_multiplier: 1.2
+
+            # Percent chance for switching to be on, between 0 and 1 inclusive.
+            # Lowest wins; "permanently_disabled" < "special" < all numeric values.
+            switching: 0.5
+
+            # Early bet bonus. Lowest wins.
+            bet_bonus: 30
+
+            # Early bet bonus when switching is on. Lowest wins.
+            switching_bet_bonus: 35
+
+           # True wins.
+            bet_bonus_has_decay: True
+
+            # Ex: all metronome matchups get flagged as "cancer", so this
+            # needs to be disabled for some metagames. True wins.
+            check_cancer_recommendation: yes
+
+            # Reject matches estimated to last longer than this number of turns.
+            # Needed so metronome vs ohko doesn't get rejected on this basis.
+            # Applies to match bids only. Highest wins.
+            turns_expected_max: 30
+
+            # [2,3] = any 2v3 or 3v2 matchup unless [3,2] is also specified
+            team_sizes:
+                !!python/tuple [1,6]:
+                    rarity: 0.0
+                    biddable: yes
+                !!python/tuple [2,6]:
+                    rarity: 0.0
+                    biddable: yes
+                !!python/tuple [3,6]:
+                    rarity: 0.0
+                    biddable: yes
+                !!python/tuple [4,6]:
+                    rarity: 0.0
+                    biddable: yes
+                !!python/tuple [5,6]:
+                    rarity: 0.0
+                    biddable: yes
+                !!python/tuple [6,6]:
+                    rarity: 0.0
+                    biddable: yes
+
+                !!python/tuple [1,5]:
+                    rarity: 0.0
+                    biddable: yes
+                !!python/tuple [2,5]:
+                    rarity: 0.0
+                    biddable: yes
+                !!python/tuple [3,5]:
+                    rarity: 0.0
+                    biddable: yes
+                !!python/tuple [4,5]:
+                    rarity: 0.0
+                    biddable: yes
+                !!python/tuple [5,5]:
+                    rarity: 0.0
+                    biddable: yes
+
+                !!python/tuple [1,4]:
+                    rarity: 0.0
+                    biddable: yes
+                !!python/tuple [2,4]:
+                    rarity: 0.0
+                    biddable: yes
+                !!python/tuple [3,4]:
+                    rarity: 0.0
+                    biddable: yes
+                !!python/tuple [4,4]:
+                    rarity: 0.2
+                    biddable: yes
+
+                !!python/tuple [1,3]:
+                    rarity: 0.0
+                    biddable: yes
+                !!python/tuple [2,3]:
+                    rarity: 0.0
+                    biddable: yes
+                !!python/tuple [3,3]:
+                    rarity: 0.6
+                    biddable: yes
+
+                !!python/tuple [1,2]:
+                    rarity: 0.0
+                    biddable: yes
+                !!python/tuple [2,2]:
+                    rarity: 0.1
+                    biddable: yes
+
+                !!python/tuple [1,1]:
+                    rarity: 0.03
+                    biddable: yes
+
+            always_allow_self_target: False
+
+            pbr:
+                custom_iso: 'muted-announcer'
+                iso_language: 'english'
+                custom_announcer: 'pbr'
+
+            ally_hit: 0
+
+            effectiveness: 'normal'
+
+            inputless_random_switch_chance: 0
+
+            battle_timer: 15
+
+    ################
+    one_move_per_pokemon:
+    ################
+        # These settings are merged in when switching is off and there is one move per Pokemon.
+        # (Ex: metronome, ohko, and metronome + ohko matches).
+        1:
+            regular_delay: 0
+            switch_only_delay: 0
+            animation_speed_multiplier: 1.6
+
+    ################
+    team_choice:
+    ################
+        # These settings are merged in for token matches where the match bidder selects the Pokemon species for the teams.
+        7:
+            bet_bonus: 0
+            switching_bet_bonus: 0
+
+
+################################
+multi_mode_ceilings:
+################################
+    # An additional ceiling that applies to matches with >1 metagame or >1 gimmick,
+    # not counting modes in `ignore` below.
+
+    default: 0  # 0% bonus
+
+    ignore:
+      - german
+      - french
+      - spanish
+      - italian
+      - japanese
+      - speed
+      - doubles
+
+    full_exemptions:
+        # If one of these modes is present,
+        # then the ceiling is equal to the smallest value here for modes in the match.
+        blind_bet: 40
+
+    defiance_subset_exemptions:
+        # If:
+        # - defiance, and
+        # - user made no choice for the cloned pokemon, and
+        # - the match metagames are a subset of the modes listed here:
+        # Then the ceiling is equal to the smallest value here for modes in the match.
+        simple: 20
+        advanced: 20
+        runmons: 20
+        stadium2: 20
+        christmas: 20
+        dinner: 20
+        nuclear_winter: 20
+        new_year: 20
+        costume: 20
+        metronome: 5
+        rngod: 10
+        pwt: 10
+
+
+################################
+restrictions:
+################################
+    ################
+    automated_and_token_matchmaking:
+    ################
+        mode_pair_blacklists:
+           # Ban two modes in a list from ever appearing together in a match.
+           # Or if list elements are also lists, then ban
+           # each mode in sublist 1 with each mode in sublist 2.
+
+            # Prolonging
+            # Generally avoid allowing two match-prolonging modes to combine.
+          - [ubers, defiance]
+          - [[apokelypse, nuclear_winter], [defiance]]
+          - [[ubers, dubers, apokelypse, nuclear_winter], [commitment, sticky_inputs, fog, sync5050, rainbow, hit_and_run, hidden_ace, letdown, boing, acid_rain]]  # Ubers and its holiday variants have very stally / bulky sets that shouldn't combine with various modes.
+          - [[commitment, sticky_inputs], [duel]]  # Overly prolonging without other players selecting alternate attacking moves.
+          - [[commitment, sticky_inputs], [sync5050, fog]]  # Two match-prolonging modes.
+          - [[commitment, sticky_inputs], [nightmare, rainbow, hidden_ace, letdown, rngod, sketchy, boing]]  # Avoid getting stuck on weak moves.
+          - [[commitment, sticky_inputs], [fragile]]  # Can be unbanned when move selector is upgraded to always pick a move that hasn't been selected this turn.
+          - [fragile, sketchy]  # Too easy to end up sketching non-damaging moves.
+          - [[rough_skin, kapow], [letdown]] #encourages splash spam until PP loss.
+
+           # Contradictory
+          - [[german, french, spanish, italian, japanese], [german, french, spanish, italian, japanese]]
+          - [[fog, hail], [fog, hail]]
+          - [[fog, hail], [acid_rain]]
+          - [fog, pinpoint]
+          - [[defiance], [commitment, sticky_inputs, sync5050]]
+          - [defiance, input_war]
+          - [commitment, sticky_inputs]
+          - [ohko, pinpoint]
+          - [blind_bet, hidden_bets] # Bets hidden for 10 seconds, defeats the point.
+          - [[blind_bet], [commitment, secrecy, traitor, random_order]]
+          - [[defiance, commitment, blind_bet], [audio_only]]
+          - [[rngod], [advanced, ubers, dubers, apokelypse, nuclear_winter, stadium2, anime, manga, pwt, metronome, ohko, seismic_toss, kapow, rough_skin, input_war, type_warfare, color_clash, pbr_gold, dinner, nuclear_winter, new_year, costume, present, snowball, apokelypse, nightmare, shadow_force, astonish, sketchy, clone]]
+          - [[traitor], [vs_mix, pwt]]  # Disable traitor for team vs team metagames.
+          - [[doubles], [input_war]]
+          - [[communism], [duel, defiance]]
+
+           # Defeats a gimmick's strategic element.
+          - [communism, sticky_inputs]
+
+           # Scammy- one side has an advantage that newcomers are likely unaware of
+
+           # Sets should not lose species
+          - [[dubers, apokelypse, nuclear_winter, type_warfare, color_clash, ohko, kapow, rough_skin, present, snowball, runmons, nightmare, astonish, shadow_force], [clone, sketchy, rngod]]
+
+           # Sets should not lose ability
+          - [[dubers, apokelypse, nuclear_winter, kapow, rough_skin, pwt, present, snowball, nightmare, astonish, shadow_force], [pinpoint, chameleon, shield, armor, lucky, boing, acid_rain, adaptable]]
+          - [[lucky, boing, acid_rain, pinpoint, chameleon, shield, armor, adaptable], [rngod]]
+
+           # Sets should not lose moves or stats
+          - [[dubers, apokelypse, nuclear_winter, input_war, pwt, present, snowball, nightmare, astonish, shadow_force], [clone, sketchy, explosive, rainbow, hit_and_run, hidden_ace, letdown, boing, acid_rain, departed]]
+          - [kapow, letdown]
+
+           # Sets should not lose type chart
+          - [[inverse], [input_war, shadow_force, nightmare, astonish, present, snowball]]
+
+           # Sets should not lose held items
+          - [[ohko, kapow, seismic_toss, present, snowball, nightmare, astonish, shadow_force], [lucky, clone]]
+
+          # Sets should not logs accuracy
+          - [input_war, fog]
+
+          # Sets should not lose HP or get random nonvolatile statuses
+          - [[kapow, rough_skin, input_war, present, snowball, seismic_toss, ohko, nightmare, astonish, shadow_force], [80_perc_hp, afflicted]]
+
+           # Unbalanced- causes money prints
+          - [kapow, boing]  # Gengar sweep
+          - [[adaptable], [ubers, dubers, apokelypse, nuclear_winter, middle_cup, little_cup, costume]]
+          - [[manvsmachine], [seismic_toss, kapow, rough_skin, defeatist, fragile, timed]]
+
+           # Not enough pokesets
+          - [[dubers, apokelypse, nuclear_winter, middle_cup, little_cup, runmons, anime, manga, pwt, starters, ohko, seismic_toss, kapow, rough_skin, input_war, type_warfare, color_clash, pbr_gold, dinner, nuclear_winter, new_year, costume, present, snowball, nightmare, astonish, shadow_force], [fire_and_ice, sky_battle]]
+
+
+    ################
+    automated_matchmaking:
+    ################
+        mode_pair_blacklists: []
+
+    ################
+    token_matchmaking:
+    ################
+        mode_pair_blacklists: []
+        team_choice_blacklist:
+            # Bidders cannot choose team species when requesting these gimmicks.
+
+            # Bidder would know the secret pokemon
+          - secrecy
+          - blind_bet
+
+            # Prolonging / One-sided
+          - pwt
+
+            # Nonsensical
+          - rngod
+          - typewarfare
+          - colorclash
+
+            # Traitor and Random Order are ok, whatever order is bid will get switched up.
+
+            # Prolonging
+          - defiance
+          - commitment
+          - sticky_inputs
+          - clone
+          - sketchy
+          - letdown
+          - boing
+          - fog
+
+    ################
+    lift_restrictions: []
+    ################

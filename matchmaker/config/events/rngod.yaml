@@ -1,0 +1,262 @@
+mergeable:
+  default:
+      0:
+        bet_bonus: 15
+        switching_bet_bonus: 30
+
+  multi_mode_ceilings:
+      defiance_subset_exemptions:
+          simple: 5
+          rngod: 2
+
+
+##################
+# settings
+##################
+event_name: rngod
+
+default_gimmick_chance: 0.53
+
+must_contain_all_gimmicks:
+  - rngod
+
+################
+metagames:
+################
+    #########
+    base:
+    #########
+        # Rarities are not percentages.
+        # Modes are selected by accumulating and then randomly bisecting their rarities.
+        simple:       {rarity: 30.0}
+        advanced:     {rarity: 0.0}
+        pwt:
+            rarity:  0.0
+            match_settings:
+                2:
+                    bet_bonus: 8
+                    switching_bet_bonus: 15
+        ubers:
+            rarity:  0.0
+            match_settings:
+                2:
+                    bet_bonus: 12
+                    switching_bet_bonus: 23
+        dubers:
+            rarity:  0.0
+            gimmick_rarity_whitelist:
+                - doubles
+                - doubles_inputting_combo_of_2
+                - doubles_inputting_combo_of_3
+                - doubles_inputting_combo_of_4
+                - doubles_defiance_combo_of_2
+                - doubles_defiance_combo_of_3
+                - doubles_defiance_combo_of_4
+        middle_cup:   {rarity:  0.0}
+        little_cup:   {rarity:  0.0}
+        stadium2:
+            rarity:  0.0
+            gimmick_rarity_whitelist:
+                - s2_defiance_and_random_order
+            gimmick_rarities:
+                s2_defiance_and_random_order: 1.0
+            match_settings:
+                2:
+                    bet_bonus: 12
+                    switching_bet_bonus: 23
+        runmons:
+            rarity:  0.0
+            match_settings:
+                2:
+                    bet_bonus: 8
+                    switching_bet_bonus: 15
+        anime:
+            rarity:  0.0
+            match_settings:
+                2:
+                    bet_bonus: 8
+                    switching_bet_bonus: 15
+        manga:
+            rarity:  0.0
+            match_settings:
+                2:
+                    bet_bonus: 8
+                    switching_bet_bonus: 15
+        pbr_gold:     {rarity:  0.0}
+        metronome:
+            rarity:  0.0
+            match_settings:
+                5:
+                    bet_bonus: 3
+                    switching_bet_bonus: 3
+        ohko:
+            rarity:  0.0
+            match_settings:
+                5:
+                    bet_bonus: 3
+                    switching_bet_bonus: 3
+        seismic_toss:
+            rarity:  0.0
+            match_settings:
+                5:
+                    bet_bonus: 3
+                    switching_bet_bonus: 3
+        kapow:
+            rarity:  0.0
+            match_settings:
+                5:
+                    bet_bonus: 3
+                    switching_bet_bonus: 3
+        rough_skin:
+            rarity:  0.0
+            match_settings:
+                5:
+                    bet_bonus: 3
+                    switching_bet_bonus: 3
+
+        input_war:
+            rarity:  0.0
+            match_settings:
+                5:
+                    bet_bonus: 3
+                    switching_bet_bonus: 3
+        type_warfare:
+            rarity:  0.0
+            match_settings:
+                2:
+                    bet_bonus: 12
+                    switching_bet_bonus: 23
+        color_clash:  {rarity:  0.0}
+        starters:     {rarity:  0.0}
+
+    #########
+    versus_mixes:
+    #########
+        vs_mix:       {rarity: 0.0}
+
+    #########
+    random_mixes:
+    #########
+        random_mix_auto: {rarity: 0.0}
+        random_mix_bid:  {rarity: 0.0}
+        random_mix_bid2: {rarity: 0.0}
+        random_mix_bid3: {rarity: 0.0}
+        luckmons:
+            rarity: 0.0
+            match_settings:
+                5:
+                    bet_bonus: 3
+                    switching_bet_bonus: 3
+
+
+################
+gimmicks:
+################
+    #########
+    base:
+    #########
+        normal:         {}  # Must be present as a key to be present in the event
+        # input change
+        defiance:
+            rarity: 1.5
+            match_settings:
+                3:
+                    bet_bonus: 8
+        duel:           {rarity: 1.5}
+        sync5050:
+            rarity: 1.0
+            match_settings:
+                3:
+                    bet_bonus: 23
+                    switching_bet_bonus: 30
+        # team change
+        random_order:
+            rarity: 1.0
+            match_settings:
+                2:
+                    bet_bonus: 25
+                    switching_bet_bonus: 35
+        secrecy:
+            rarity: 1.0
+            match_settings:
+                3:
+                    bet_bonus: 25
+                    switching_bet_bonus: 35
+        traitor:
+            rarity: 1.0
+            match_settings:
+                3:
+                    bet_bonus: 25
+                    switching_bet_bonus: 35
+        blind_bet:
+            rarity: 0.6
+            match_settings:
+                3:
+                    bet_bonus: 23
+                    switching_bet_bonus: 30
+        # battle change
+        doubles:
+            rarity: 6.0
+            match_settings:
+                2:
+                    bet_bonus: 25
+                    switching_bet_bonus: 35
+        inverse:        {rarity: 2.0}
+        fog:            {rarity: 1.4}
+        speed:
+            rarity: 2.0
+            match_settings:
+                1:
+                    bet_bonus: 23
+                    switching_bet_bonus: 30
+        fragile:
+            rarity: 1.0
+            match_settings:
+                3:
+                    bet_bonus: 8
+                    switching_bet_bonus: 15
+        80_perc_hp:     {rarity: 0.5}
+        afflicted:      {rarity: 0.5}
+        timed:          {rarity: 1.0}
+        defeatist:      {rarity: 5.0}
+        german:         {rarity: 0.125}
+        french:         {rarity: 0.125}
+        spanish:        {rarity: 0.125}
+        italian:        {rarity: 0.125}
+        japanese:       {rarity: 0.125}
+        # x-replace
+        explosive:
+            rarity: 1.0
+            match_settings:
+                1:
+                    bet_bonus: 12
+                    switching_bet_bonus: 23
+        rainbow:        {rarity: 0.5}
+        hit_and_run:    {rarity: 0.5}
+        hidden_ace:     {rarity: 0.4}
+        letdown:        {rarity: 0.1}
+        fire_and_ice:   {rarity: 0.2}
+        sky_battle:     {rarity: 0.5}
+        rngod:
+            rarity: 0.6
+            cooldown: 0
+            match_settings:
+                3:
+                    pbr:
+                        custom_iso: 'muted-announcer'
+                        iso_language: 'english'
+                        custom_announcer: 'pbr-random'
+        hidden_bets:    {rarity: 5.0}
+
+    #########
+    random_combos:
+    #########
+        s2_defiance_and_random_order:    {rarity: 0.0}
+        defiance_rngod:                  {rarity: 0.5}
+        singles_combo_of_2:              {rarity: 3.0}
+        singles_combo_of_3:              {rarity: 1.3}
+        # Doubles is separate, just for more precise control over the rarities
+        doubles_defiance_combo_of_2:     {rarity: 1.2}
+        doubles_defiance_combo_of_3:     {rarity: 1.5}
+        doubles_inputting_combo_of_2:    {rarity: 1.4}
+        doubles_inputting_combo_of_3:    {rarity: 0.5}

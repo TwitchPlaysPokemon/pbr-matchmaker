@@ -1,0 +1,703 @@
+################
+base:
+################
+    simple:
+        match_settings:
+            1:
+                switching: 0.40
+
+        # Internal set tag, set by movesets team.
+        set_tag: standard
+
+        # Name displayed on the overlay.
+        display_name: Standard
+
+        # Alternate names accepted in token match bids.
+        bid_aliases: [standard, simple]
+
+        # Only allow shinies to appear with frequency of shiny_chance.
+        # Defaults to yes.
+        rarify_shinies: yes
+
+        # Allow matchmaker to select the same (species, setname) more than once per match.
+        # Defaults to no.
+        allow_duplicate_pokesets: no
+
+        # Allow matchmaker to select the same species more than once per team.
+        # Defaults to no.
+        allow_duplicate_team_species: no
+
+        # Filename of icon, sans extension.
+        # Defaults to the mode key (in this case, 'simple').
+        icon_id: normal
+
+        # Emoji representation
+        emoji: 🧢
+
+        # Description displayed on the overlay.
+        description: A match using standard movesets.
+
+    advanced:
+        match_settings:
+            1:
+                switching: 0.45
+        set_tag: advanced
+        # cooldown: 1
+        display_name: Advanced
+        bid_aliases: [advanced, advance]
+        emoji: 🎓
+        description: A match using more complex movesets.
+
+    ubers:
+        set_tag: ubers
+        cooldown: 1
+        display_name: Ubers
+        bid_aliases: [ubers, uber]
+        emoji: 👑
+        description: A match using the most powerful Pokémon with very strong sets.
+
+    dubers:
+        set_tag: ubersdoubles
+        cooldown: 1
+        display_name: D-Ubers
+        bid_aliases: [doublesubers, dubers, duber]
+        emoji: 🤼
+        description: A match using the most powerful Pokémon with very strong doubles sets.
+        versus_tags: ["gravity", "hail", "udkapow", "offense", "rain", "sand", "sun", "trickroom", "trickster"]
+        icon_id: ubers
+
+    middle_cup:
+        set_tag: middlecup
+        cooldown: 1
+        display_name: Middle Cup
+        bid_aliases: [middlecup, mc, mcup]
+        emoji: 🧒
+        description: A match using Pokémon in the middle of an evolutionary line.
+
+    little_cup:
+        set_tag: littlecup
+        cooldown: 1
+        display_name: Little Cup
+        bid_aliases: [littlecup, lc, lcup]
+        emoji: 👶
+        description: A match using Pokémon at the start of an evolutionary line.
+
+    stadium2:
+        match_settings:
+            2:
+                bet_bonus: 20
+                switching_bet_bonus: 25
+                pbr:
+                    custom_iso: 'muted-announcer'
+                    iso_language: 'english'
+                    custom_announcer: 'pbr-and-stadium2-co-announcers'
+        set_tag: setname+Stadium 2
+        cooldown: 1
+        display_name: Stadium 2
+        bid_aliases: [stadium2, stad2, s2]
+        emoji: 🏟️
+        description: A match using Lv. 100 rental Pokémon from Stadium 2.
+
+    runmons:
+        match_settings:
+            2:
+                bet_bonus: 20
+                switching_bet_bonus: 25
+        set_tag: runmon
+        rarify_shinies: no
+        cooldown: 1
+        display_name: Runmons
+        bid_aliases: [runmons, runmon]
+        emoji: 🎖️
+        description: A match using Pokémon sets from trainers in TPP runs.
+
+    pwt:
+        match_settings:
+            2:
+                bet_bonus: 20
+                switching_bet_bonus: 25
+        set_tag: "in-game"
+        # pwt_versus_tags section
+        # Copy the contents of pwt_versus_tags.json to versus_tags below:
+        versus_tags: ["pwt-custom"]
+        rarify_shinies: no
+        allow_duplicate_team_species: yes    # Many of these trainers have species duplicates.
+        cooldown: 2
+        display_name: PWT
+        bid_aliases: [pwt, ingame]
+        icon_id: seismic_toss
+        emoji: 🌐
+        description: Pokémon World Tournament using sets from the official games and TPP runs.
+
+    anime:
+        match_settings:
+            2:
+                bet_bonus: 20
+                switching_bet_bonus: 25
+        set_tag: anime
+        rarify_shinies: no
+        cooldown: 2
+        display_name: Anime
+        bid_aliases: [anime, animemons, animemon, animesets]
+        emoji: 📺
+        description: A match using Pokémon sets based on the anime.
+
+    manga:
+        match_settings:
+            2:
+                bet_bonus: 20
+                switching_bet_bonus: 25
+        set_tag: manga
+        rarify_shinies: no
+        cooldown: 2
+        display_name: Manga
+        bid_aliases: [manga, mangamons, mangamon, mangasets]
+        emoji: 📚
+        icon_id: normal
+        description: A match using Pokémon sets based on the manga.
+
+    pbr_gold:
+        set_tag: "PBR1.2"
+        cooldown: 1
+        display_name: PBR Gold
+        bid_aliases: [pbrgold, gold, pbr1.2]
+        emoji: 📀
+        description: A match using PBR's old sets from the 1.2 era.
+
+    starters:
+        set_tag: starterbattle
+        cooldown: 4
+        display_name: Starters
+        bid_aliases: [starters, starter]
+        emoji: 🔢
+        description: A match using special sets for starter Pokémon.
+
+    metronome:
+        # This bet_bonus applies to metronome token match bids
+        # which did not choose sets.
+        # Ex: 'match metronome t1'
+        match_settings:
+            1:
+                check_cancer_recommendation: no
+                turns_expected_max: 0
+            5:
+                bet_bonus: 5
+                switching_bet_bonus: 5
+            7:
+                switching: 0.0
+        set_tag: metronome
+        cooldown: 4
+        display_name: Metronome
+        bid_aliases: [metronome, metro, yolo, yolonome]
+        emoji: ☝️
+        description: A match using Pokémon with Metronome movesets.
+
+    ohko:
+        match_settings:
+            1:
+                check_cancer_recommendation: no
+                turns_expected_max: 0
+            5:
+                bet_bonus: 5
+                switching_bet_bonus: 5
+            7:
+                switching: 0.0
+        set_tag: setname+OHKO
+        cooldown: 4
+        display_name: OHKO
+        bid_aliases: [ohko]
+        emoji: 🥊
+        description: A match using Pokémon with OHKO movesets.
+
+    seismic_toss:
+        match_settings:
+            1:
+                check_cancer_recommendation: no
+                turns_expected_max: 0
+                animation_speed_multiplier: 2.0
+            5:
+                bet_bonus: 5
+                switching_bet_bonus: 5
+            7:
+                switching: 0.0
+        set_tag: setname+ST
+        cooldown: 4
+        display_name: Seismic Toss
+        bid_aliases: [seismictoss, st, toss]
+        emoji: 🌎
+        description: A match using Pokémon with Seismic Toss movesets.
+
+    kapow:
+        match_settings:
+            1:
+                check_cancer_recommendation: no
+                turns_expected_max: 0
+            5:
+                bet_bonus: 5
+                switching_bet_bonus: 5
+            7:
+                switching: 0.0
+                team_sizes:
+                    !!python/tuple [1,6]:
+                        rarity: 0.0
+                        biddable: no
+                    !!python/tuple [2,6]:
+                        rarity: 0.0
+                        biddable: no
+                    !!python/tuple [3,6]:
+                        rarity: 0.0
+                        biddable: no
+                    !!python/tuple [4,6]:
+                        rarity: 0.0
+                        biddable: no
+                    !!python/tuple [5,6]:
+                        rarity: 0.0
+                        biddable: no
+                    # There are only 11 pokesets here, making a unique 6v6 impossible.
+                    !!python/tuple [6,6]:
+                        rarity: 0.0
+                        biddable: no
+
+                    !!python/tuple [1,5]:
+                        rarity: 0.0
+                        biddable: no
+                    !!python/tuple [2,5]:
+                        rarity: 0.0
+                        biddable: no
+                    !!python/tuple [3,5]:
+                        rarity: 0.0
+                        biddable: no
+                    !!python/tuple [4,5]:
+                        rarity: 0.0
+                        biddable: no
+                    !!python/tuple [5,5]:
+                        rarity: 0.2
+                        biddable: yes
+
+                    !!python/tuple [1,4]:
+                        rarity: 0.0
+                        biddable: no
+                    !!python/tuple [2,4]:
+                        rarity: 0.0
+                        biddable: no
+                    !!python/tuple [3,4]:
+                        rarity: 0.0
+                        biddable: no
+                    !!python/tuple [4,4]:
+                        rarity: 0.7
+                        biddable: yes
+
+                    !!python/tuple [1,3]:
+                        rarity: 0.0
+                        biddable: no
+                    !!python/tuple [2,3]:
+                        rarity: 0.0
+                        biddable: no
+                    !!python/tuple [3,3]:
+                        rarity: 1.2
+                        biddable: yes
+
+                    !!python/tuple [1,2]:
+                        rarity: 0.0
+                        biddable: no
+                    !!python/tuple [2,2]:
+                        rarity: 0.0
+                        biddable: yes
+
+                    !!python/tuple [1,1]:
+                        rarity: 0.0
+                        biddable: yes
+        set_tag: setname+KAPOW
+        cooldown: 4
+        display_name: KAPOW
+        bid_aliases: [kapow, pokecidal, pokecide]
+        icon_id: bomb
+        emoji: 💥
+        description: A match using Pokémon with sacrifical movesets.
+
+    rough_skin:
+        biddable: no
+        match_settings:
+            1:
+                check_cancer_recommendation: no
+                turns_expected_max: 0
+                animation_speed_multiplier: 2.0
+            5:
+                bet_bonus: 5
+                switching_bet_bonus: 5
+            7:
+                switching: 0.0
+        set_tag: setname+Rough Skin
+        cooldown: 1
+        display_name: Rough Skin
+        bid_aliases: [roughskin, rs]
+        emoji: 🦈
+        description: A match using Pokémon with sets built around Rough Skin.
+
+    input_war:
+        match_settings:
+            1:
+                check_cancer_recommendation: no
+                turns_expected_max: 0
+            5:
+                bet_bonus: 5
+                switching_bet_bonus: 5
+            7:
+                switching: 0.0
+                team_sizes:
+                    # There are only 6 pokesets here, limiting unique matches.
+                    !!python/tuple [1,6]:
+                        rarity: 0.0
+                        biddable: no
+                    !!python/tuple [2,6]:
+                        rarity: 0.0
+                        biddable: no
+                    !!python/tuple [3,6]:
+                        rarity: 0.0
+                        biddable: no
+                    !!python/tuple [4,6]:
+                        rarity: 0.0
+                        biddable: no
+                    !!python/tuple [5,6]:
+                        rarity: 0.0
+                        biddable: no
+                    !!python/tuple [6,6]:
+                        rarity: 0.0
+                        biddable: no
+
+                    !!python/tuple [1,5]:
+                        rarity: 0.0
+                        biddable: yes
+                    !!python/tuple [2,5]:
+                        rarity: 0.0
+                        biddable: no
+                    !!python/tuple [3,5]:
+                        rarity: 0.0
+                        biddable: no
+                    !!python/tuple [4,5]:
+                        rarity: 0.0
+                        biddable: no
+                    !!python/tuple [5,5]:
+                        rarity: 0.0
+                        biddable: no
+
+                    !!python/tuple [1,4]:
+                        rarity: 0.0
+                        biddable: yes
+                    !!python/tuple [2,4]:
+                        rarity: 0.0
+                        biddable: yes
+                    !!python/tuple [3,4]:
+                        rarity: 0.0
+                        biddable: no
+                    !!python/tuple [4,4]:
+                        rarity: 0.0
+                        biddable: no
+
+                    !!python/tuple [1,3]:
+                        rarity: 0.0
+                        biddable: yes
+                    !!python/tuple [2,3]:
+                        rarity: 0.0
+                        biddable: yes
+                    !!python/tuple [3,3]:
+                        rarity: 1.2
+                        biddable: yes
+
+                    !!python/tuple [1,2]:
+                        rarity: 0.0
+                        biddable: yes
+                    !!python/tuple [2,2]:
+                        rarity: 0.0
+                        biddable: yes
+
+                    !!python/tuple [1,1]:
+                        rarity: 0.0
+                        biddable: yes
+        set_tag: setname+Input War
+        cooldown: 4
+        display_name: Input War
+        bid_aliases: [inputwar]
+        emoji: 🤺
+        description: A match using Pokémon with sets that incite input wars.
+
+    type_warfare:
+        set_tag: standard
+        cooldown: 1
+        display_name: Type Warfare
+        versus_tags: ['type+Normal', 'type+Fighting', 'type+Flying', 'type+Poison', 'type+Ground', 'type+Rock', 'type+Bug', 'type+Ghost', 'type+Steel', 'type+Fire', 'type+Water', 'type+Grass', 'type+Electric', 'type+Psychic', 'type+Ice', 'type+Dragon', 'type+Dark']
+        bid_aliases: [typewarfare, types, type, typebattle]
+        icon_id: class_warfare
+        emoji: 🤽
+        description: A match between Pokémon of two different types.
+
+    color_clash:
+        set_tag: standard
+        cooldown: 1
+        display_name: Color Clash
+        versus_tags: ['color+Red', 'color+Blue', 'color+Yellow', 'color+Green', 'color+Black', 'color+Brown', 'color+Purple', 'color+Gray', 'color+White', 'color+Pink']
+        bid_aliases: [colorclash, colors, color, colorbattle]
+        icon_id: class_warfare
+        emoji: 🎨
+        description: A match between Pokémon of two different colors.
+
+    # Holiday metagames below.
+
+    costume:
+        set_tag: costume
+        cooldown: 1
+        display_name: Costume Party
+        bid_aliases: [costumeparty, costume]
+        rarify_shinies: no
+        emoji: 👺
+        description: It's a costume party! Baby Pokémon are dressed up as Pokémon from later gens.
+
+    # Halloween metagames below.
+
+    halloween:
+        set_tag: halloween
+        display_name: Halloween
+        bid_aliases: [halloween, hw, hween]
+        icon_id: normalorange
+        rarify_shinies: no
+        emoji: 🎃
+        description: A match using Pokémon with Halloween-themed movesets.
+
+    apokelypse:
+        set_tag: pokelypse
+        cooldown: 1
+        display_name: Apokelypse
+        bid_aliases: [apokelypse, pokelypse]
+        rarify_shinies: no
+        emoji: 🦾
+        description: A match using the most powerful Pokémon with very strong sets.
+
+    nightmare:
+        match_settings:
+            1:
+                check_cancer_recommendation: no
+                turns_expected_max: 0
+                animation_speed_multiplier: 2.0
+            5:
+                bet_bonus: 5
+                switching_bet_bonus: 5
+            7:
+                switching: 0.0
+        set_tag: nightmare
+        cooldown: 1
+        display_name: Nightmare
+        bid_aliases: [nightmare]
+        rarify_shinies: no
+        icon_id: face
+        emoji: 😴
+        description: Pokémon that tuck you in and give you pleasent dreams... forever.
+
+    shadow_force:
+        match_settings:
+            1:
+                check_cancer_recommendation: no
+                turns_expected_max: 0
+                animation_speed_multiplier: 2.0
+            5:
+                bet_bonus: 5
+                switching_bet_bonus: 5
+            7:
+                switching: 0.0
+        set_tag: shadowforce
+        cooldown: 1
+        display_name: Shadow Force
+        bid_aliases: [shadowforce]
+        rarify_shinies: no
+        icon_id: spooky
+        emoji: 👻
+        description: These pokemon flitter unbound from existence to attack.
+
+    astonish:
+        match_settings:
+            1:
+                check_cancer_recommendation: no
+                turns_expected_max: 0
+                animation_speed_multiplier: 2.0
+            5:
+                bet_bonus: 5
+                switching_bet_bonus: 5
+            7:
+                switching: 0.0
+        set_tag: astonish
+        cooldown: 1
+        display_name: Astonish
+        bid_aliases: [astonish]
+        rarify_shinies: no
+        icon_id: blackcat
+        emoji: 😱
+        description: A scary match using Pokémon that win by frightening each other.
+
+    # Christmas metagames below.
+
+    christmas:
+        set_tag: christmas
+        display_name: Christmas
+        bid_aliases: [christmas, xmas]
+        rarify_shinies: no
+        icon_id: normalred
+        emoji: 🎄
+        description: A match using Pokémon with Christmas-themed movesets.
+
+    christmas_green:
+        set_tag: christmas
+        display_name: Christmas
+        bid_aliases: []
+        rarify_shinies: no
+        icon_id: normalgreen
+        emoji: 🌲
+        description: A match using Pokémon with Christmas-themed movesets.
+
+    dinner:
+        set_tag: Dinner
+        cooldown: 1
+        display_name: Dinner
+        bid_aliases: [dinner, christmasdinner, xmasdinner]
+        rarify_shinies: no
+        icon_id: cdinner
+        emoji: 🍗
+        description: It's time for Christmas dinner! Bon appetit.
+
+    nuclear_winter:
+        set_tag: nuke
+        cooldown: 1
+        display_name: Nuclear Winter
+        bid_aliases: [nuclearwinter, nwinter, nuclear, nuke]
+        rarify_shinies: no
+        icon_id: nuclearwinter
+        emoji: ☢️
+        description: Oh, the weather outside is frightful... but these Pokémon are even more frightful!
+
+    new_year:
+        set_tag: newyear
+        cooldown: 1
+        display_name: New Year
+        bid_aliases: [newyear]
+        rarify_shinies: no
+        icon_id: newyear
+        emoji: 🎊
+        description: These middle-stage Pokémon have gathered together to bring in the new year!
+
+    present:
+        match_settings:
+            1:
+                check_cancer_recommendation: no
+                turns_expected_max: 0
+            5:
+                bet_bonus: 5
+                switching_bet_bonus: 5
+            7:
+                switching: 0.0
+        set_tag: present
+        cooldown: 1
+        display_name: Present
+        bid_aliases: [present]
+        rarify_shinies: no
+        icon_id: crandomorder
+        emoji: 🎁
+        description: "'Tis the season of giving, and these Pokémon come only to offer gifts! Or so it seems..."
+
+    snowball:
+        match_settings:
+            1:
+                check_cancer_recommendation: no
+                turns_expected_max: 0
+            5:
+                bet_bonus: 5
+                switching_bet_bonus: 5
+            7:
+                switching: 0.0
+        set_tag: snowball
+        cooldown: 1
+        display_name: Snowball
+        bid_aliases: [snowball]
+        rarify_shinies: no
+        emoji: ⛄
+        description: These Pokémon are their own snowballs- watch out or they'll roll you in!
+
+################
+versus_mixes:
+################
+    # Two sub_modes get chosen randomly- one for each team.
+    vs_mix:
+        biddable: no
+        # 4 choose 2 = 6 possible versus combinations in this mix.
+        sub_modes: [simple, advanced, runmons, stadium2]
+        display_name: Class Warfare
+        bid_aliases: [classwarfare]
+        icon_id: class_warfare
+        emoji: ♟️
+        description: # Leave blank for auto generated description.
+
+
+################
+random_mixes:
+################
+    # At least one Pokemon from each sub_mode will be present.
+    # Any token bid with metagames that are not contained
+    # in a single list will be rejected.
+    random_mix_auto:
+        # Used by automated matchmaking only.
+        biddable: no
+        sub_modes: [simple, advanced, runmons, stadium2]
+        rarify_shinies: yes
+        display_name: Mix
+        icon_id: mix
+        emoji: 🧬
+        description: # Leave blank for auto generated description.
+
+    random_mix_bid:
+        # Used by token match bids of multiple metagames.
+        sub_modes: [simple, advanced]
+        display_name: Mix
+        icon_id: mix
+        emoji: 🧬
+        description: # Leave blank for auto generated description.
+
+    random_mix_bid2:
+        # Used by token match bids of multiple metagames.
+        # Decreased bet bonus because of the unbalanced metagames present.
+        match_settings:
+            2:
+                bet_bonus: 0
+                switching_bet_bonus: 0
+        sub_modes: [simple, advanced, runmons, stadium2]
+        rarify_shinies: yes
+        display_name: Mix
+        icon_id: mix
+        emoji: 🧬
+        description: # Leave blank for auto generated description.
+
+    luckmons:
+        # This combo is present so players can bid with the 'luckmons' alias.
+        sub_modes: [metronome, ohko]
+        match_settings:
+            1:
+                check_cancer_recommendation: no     # These metagames usually get flagged as cancer.
+                turns_expected_max: 0                 # Disable match analysis turn limit rejection.
+            5:
+                bet_bonus: 5
+                switching_bet_bonus: 5
+        display_name: Mix
+        bid_aliases: [luckmons]
+        icon_id: mix
+        emoji: 🧬
+        description: # Leave blank for auto generated description.
+
+    random_mix_bid3:
+        sub_modes: [metronome, ohko, seismic_toss, kapow]
+        match_settings:
+            1:
+                check_cancer_recommendation: no     # These metagames usually get flagged as cancer.
+                turns_expected_max: 0                 # Disable match analysis turn limit rejection.
+            5:
+                bet_bonus: 0
+                switching_bet_bonus: 0
+        display_name: Mix
+        icon_id: "mix"
+        emoji: 🧬
+        description: # Leave blank for auto generated description.
