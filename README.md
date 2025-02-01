@@ -1,5 +1,5 @@
 ## Installation for matchmaker use
-1. Install the package with `pip install git+https://github.com/TwitchPlaysPokemon/pbr-matchmaker.git@master#egg=pbrmatchmaker`  
+1. Install the package with `pip install -U git+https://github.com/TwitchPlaysPokemon/pbr-matchmaker.git@master#egg=pbrmatchmaker`  
 1. Run `example.py` to generate a match. Modify according to your needs.
  
 ## Installation for matchmaker modification
