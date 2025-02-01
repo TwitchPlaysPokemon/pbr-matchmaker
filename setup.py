@@ -11,7 +11,7 @@ setup(
     version=__version__,
     packages=find_packages(),
     package_dir={"matchmaker": "matchmaker"},
-    package_data={"matchmaker": ["utils/*.json", "VERSION"]},
+    package_data={"matchmaker": ["./*.json", "utils/*.json", "config/**/*.yaml", "VERSION"]},
     install_requires=['pymongo', 'rainbow-logging-handler', 'gevent',
                       'pokecat @ git+https://github.com/TwitchPlaysPokemon/pokecat.git@v1.6.3#egg=pokecat'],
 

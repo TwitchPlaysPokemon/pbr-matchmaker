@@ -12,7 +12,7 @@ from .pbrpokemondb import get_pbr_pokemon_db
 log = logging.getLogger(__name__)
 
 _root_dir = path.dirname(path.abspath(__file__))
-default_dir_path = path.join(_root_dir, "..", "..")
+default_dir_path = path.join(_root_dir, "..")
 
 _POKEMON_DB_LOADERS = {
     "pbr": get_pbr_pokemon_db,
